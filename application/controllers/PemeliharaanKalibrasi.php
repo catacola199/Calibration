@@ -9,6 +9,8 @@ class PemeliharaanKalibrasi extends CI_Controller
 		parent::__construct();
 		$this->load->model('All_model');
 		$this->load->model('M_PemeliharaanKalibrasi');
+		$this->load->model('M_Kalibrasi');
+		$data["alat"] = $this->M_Kalibrasi->get_alat();
 		if ($this->All_model->isNotLogin()) redirect(site_url(''));
 		$this->load->helper('url');
 	}
@@ -17,6 +19,7 @@ class PemeliharaanKalibrasi extends CI_Controller
 	{
 		$data["role"] = $this->All_model->getAllRole();
 		$data["pemeliharaan"] = $this->M_PemeliharaanKalibrasi->getAllPemeliharaan();
+		$data["alat"] = $this->M_Kalibrasi->get_alat();
 		$this->load->view("dashboard/pemeliharaankalibrasi", $data);
 	}
 
@@ -24,10 +27,9 @@ class PemeliharaanKalibrasi extends CI_Controller
 	public function save_pemeliharaan()
 	{
 		$data = array(
-			'nama_alat'	      	    => $this->input->post('nama_alat'),
-			'merk_alat'	 		    => $this->input->post('merk_alat'),
-			'tipe_alat'     		=> $this->input->post('tipe_alat'),
-			'noseri_alat'	        => $this->input->post('noseri_alat')
+			'id_alat'	      	  	 => $this->input->post('id_alat'),
+			'tgl_pemeliharaan'	  	 => $this->input->post('tgl_pemeliharaan'),
+			'petugas'	   			 => $this->input->post('nama_petugas')
 		);
 		$this->M_PemeliharaanKalibrasi->simpandatapemeliharaan($data);
 		$this->session->set_flashdata('notif', 'Data berhasil disimpan');

@@ -18,6 +18,7 @@ class C_Qrcode extends CI_Controller
 	{
 		$data["role"] = $this->All_model->getAllRole();
 		$data["qr"] = $this->M_Qrcode->getAlldata();
+		$data["alat"] = $this->M_Kalibrasi->get_alat();
 		$this->load->view("dashboard/qrcode", $data);
 	}
 
@@ -25,48 +26,24 @@ class C_Qrcode extends CI_Controller
 	// Get Save User
 	public function simpan_Qrcode()
 	{
+		$dataalat = $this->M_Qrcode->getAlatID($this->input->post('id_alat'));
 		$data =
-			$this->input->post('username') . "  " .
-			$this->input->post('password');
+			$dataalat->nama_alat. "  " .
+			'dicobaaa'
+			;
 
 
 		$qr = $this->generate_qrcode($data);
-
+		
 		$this->M_Qrcode->simpanDataQr($qr);
 		$this->session->set_flashdata('notif', 'Data berhasil disimpan');
 		redirect(base_url('qrcode'));
 	}
 
-	// Edit User
-	public function edit_alatkalibrasi($id)
-	{
-		// $data["role"] = $this->All_model->getAllRole();
-		$data["kalibrasi"] = $this->M_Kalibrasi->getID($id);
-		$this->load->view("component/_editAlatKalibrasi", $data);
-	}
 
-	// Update User
-	public function update_alatkalibrasi()
-	{
-		$id = array(
-			'id_alat' => $this->input->post('id_alat')
-		);
-
-		$data = array(
-			'nama_alat'	      	    => $this->input->post('nama_alat'),
-			'merk_alat'	 		    => $this->input->post('merk_alat'),
-			'tipe_alat'     		=> $this->input->post('tipe_alat'),
-			'noseri_alat'	        => $this->input->post('noseri_alat'),
-			'lokasi_alat'	 	    => $this->input->post('lokasi_alat'),
-			'tglpengadaan_alat'	    => $this->input->post('tglpengadaan_alat')
-		);
-		$this->M_Kalibrasi->updatedataalatkalibrasi($data, $id);
-		$this->session->set_flashdata('notif', 'Data berhasil diupdate');
-		redirect(base_url('kalibrasis'));
-	}
-
+	
 	// Delete User akun
-	public function delete_alatkalibrasi($id = null)
+	public function delete_Qrcode($id = null)
 	{
 		if (!isset($id)) show_404();
 

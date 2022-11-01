@@ -132,7 +132,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- Form -->
-                    <form action="<?php echo base_url('Kalibrasi/save_kalibrasi') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
+                    <form action="<?php echo base_url('PemeliharaanKalibrasi/save_pemeliharaan') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
 
                         <div class="">
                             <label for="nama_alat"><strong>Nama Alat</strong></label>
@@ -143,9 +143,9 @@
                                 <?php } ?>
                             </select>
                         </div>
-                        <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
-                        <div class="input-group date" id="tgl_kalibrasi">
-                            <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" />
+                        <label for="lokasi_alat"><strong>Tanggal Pemeliharaan</strong></label>
+                        <div class="input-group date" id="tgl_pemeliharaan">
+                            <input type="text" class="form-control" name="tgl_pemeliharaan" id="tgl_pemeliharaan" />
                             <span class="input-group-append">
                                 <span class="input-group-text bg-light d-block">
                                     <i class="fa fa-calendar"></i>

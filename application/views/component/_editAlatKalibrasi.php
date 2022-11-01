@@ -38,7 +38,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="<?= site_url('dashboard') ?>">Dashboard</a>
-                                        <i class="fas fa-angle-double-right"></i> Edit Produk
+                                        <i class="fas fa-angle-double-right"></i> Edit Alat Kalibrasi
                                     </li>
                                 </ol>
                             </nav>
@@ -70,39 +70,43 @@
                                     <!-- <div class="modal-dialog"> -->
                                     <div class="modal-content">
                                         <div class="modal-header modal-colored-header bg-success">
-                                            <h4 class="modal-title" id="success-header-modalLabel">Form Edit Data Produk
+                                            <h4 class="modal-title" id="success-header-modalLabel">Form Edit Data Alat Kalibrasi
                                             </h4>
                                             <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
                                         </div>
                                         <div class="modal-body">
                                             <!-- Form -->
-                                            <form action="<?php echo base_url('produk/update_produk') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
+                                            <form action="<?php echo base_url('AlatKalibrasi/update_alatkalibrasi') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
 
-                                                <input type="text" hidden name="id_produk" id="id_produk" value="<?= $produk->id_produk ?>">
+                                                <input type="text" hidden name="id_alat" id="id_alat" value="<?= $alat_kalibrasi->id_alat ?>">
                                                 <div class="form-group">
-                                                    <label for="kode_produk"><strong>Kode Produk</strong></label>
-                                                    <input type="text" class="form-control form-control-user" name="kode_produk" id="kode_produk" placeholder="Kode Produk" value="<?= $produk->kode_produk ?>">
+                                                    <label for="nama_alat"><strong>Nama Alat</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="nama_alat" id="nama_alat" placeholder="Nama Alat" value="<?= $alat_kalibrasi->nama_alat ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="nama_produk"><strong>Nama Produk</strong></label>
-                                                    <input type="text" class="form-control form-control-user" name="nama_produk" id="nama_produk" placeholder="Nama Produk" required value="<?= $produk->nama_produk ?>">
+                                                    <label for="merk_alat"><strong>Merk Alat</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="merk_alat" id="merk_alat" placeholder="Merk Alat" value="<?= $alat_kalibrasi->merk_alat ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jenis_produk">Jenis </label>
-                                                    <input type="text" class="form-control form-control-user" name="jenis_produk" id="jenis_produk" placeholder="Jenis Produk" required value="<?= $produk->jenis_produk ?>">
+                                                    <label for="tipe_alat"><strong>Tipe Alat</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="tipe_alat" id="tipe_alat" placeholder="Tipe Alat" value="<?= $alat_kalibrasi->tipe_alat ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="quantity_produk"><strong>Quantity</strong></label>
-                                                    <input type="text" class="form-control form-control-user" name="quantity_produk" id="quantity_produk" placeholder="Quantity Produk" required value="<?= $produk->quantity_produk ?>">
+                                                    <label for="noseri_alat"><strong>No Seri Alat</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="noseri_alat" id="noseri_alat" placeholder="No Seri Alat" value="<?= $alat_kalibrasi->noseri_alat ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="harga_produk"><strong>Harga</strong></label>
-                                                    <input type="text" class="form-control form-control-user" name="harga_produk" id="harga_produk" placeholder="Harga Produk" required value="<?= $produk->harga_produk ?>">
+                                                    <label for="lokasi_alat"><strong>Lokasi</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="lokasi_alat" id="lokasi_alat" placeholder="Lokasi Alat" value="<?= $alat_kalibrasi->lokasi_alat ?>" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tglpengadaan_alat"><strong>Tanggal Pengadaan</strong></label>
+                                                    <input type="text" class="form-control form-control-user" name="tglpengadaan_alat" id="tglpengadaan_alat" placeholder="Tanggal Pengadaan" value="<?= $alat_kalibrasi->tglpengadaan_alat ?>" required>
                                                 </div>
                                                 <!-- End Form -->
 
                                                 <div class="modal-footer">
-                                                    <a href="<?php echo site_url('produks') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
+                                                    <a href="<?php echo site_url('alatKalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
                                                     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
                                                 </div>
 

@@ -63,8 +63,8 @@
                                         <thead class="bg-primary text-white">
                                             <tr>
                                                 <th>#</th>
-                                                <th>text</th>
-                                                <th>Qrcode</th>
+                                                <th>Nama Alat</th>
+                                                <th>Tanggal Pengadaan</th>
                                                 <th>Qrcode</th>
                                                 <th>Action</th>
                                             </tr>
@@ -136,20 +136,20 @@
                 <div class="modal-body">
                     <!-- Form -->
                     <form action="<?php echo base_url('C_Qrcode/simpan_Qrcode') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
-
-                        <div class="form-group">
-                            <label for="text"><strong>Username</strong></label>
-                            <input type="textarea" class="form-control form-control-user" name="username" id="username" placeholder="Tulis sesuatu.." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="text"><strong>Password</strong></label>
-                            <input type="textarea" class="form-control form-control-user" name="password" id="password" placeholder="Tulis sesuatu.." required>
+                        <div class="">
+                            <label for="nama_alat"><strong>Nama Alat</strong></label>
+                            <select class="form-control" name="id_alat" id="id_alat">
+                                <option selected>Choose...</option>
+                                <?php foreach ($alat as $l) { ?>
+                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <!-- End Form -->
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</button>
-                            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+                            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Generate</button>
                         </div>
                     </form>
                 </div>

@@ -20,14 +20,11 @@ class M_Qrcode extends CI_Model
         return $this->db->get_where($this->_table, ['id' => $id])->row();
     }
 
-    public function getAllDatas()
+    public function getAlatID($id)
     {
-        $this->db->select('*');
-        $this->db->from('alat_kalibrasi');
-        $this->db->join('p_kalibrasi', 'p_kalibrasi.id_alat = alat_kalibrasi.id_alat');
-        $query = $this->db->get();
-        return  $query->result();
+        return $this->db->get_where($this->_alat, ['id' => $id])->row();
     }
+
     public function getAllKalbirasi()
     {
         return $this->db->get($this->_alat)->result();
