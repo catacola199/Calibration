@@ -126,7 +126,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header modal-colored-header bg-primary">
-                    <h4 class="modal-title" id="success-header-modalLabel">Form Tambah Alat
+                    <h4 class="modal-title" id="success-header-modalLabel">Form Tambah Pemeliharaan
                     </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
@@ -143,9 +143,8 @@
                                 <?php } ?>
                             </select>
                         </div>
-
+                        <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
                         <div class="input-group date" id="tgl_kalibrasi">
-                            <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
                             <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" />
                             <span class="input-group-append">
                                 <span class="input-group-text bg-light d-block">
@@ -154,16 +153,8 @@
                             </span>
                         </div>
                         <div class="form-group">
-                            <label for="lampiran"><strong>Lampiran</strong></label>
-                            <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf">
-                        </div>
-                        <div class="form-group">
-                            <label for="quality_pass"><strong>Quality Pass</strong></label>
-                            <select id="quality_pass" name="quality_pass" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>Layak</option>
-                                <option>Tidak Layak</option>
-                            </select>
+                            <label for="nama_petugas"><strong>Nama Petugas</strong></label>
+                            <input type="text" class="form-control form-control-user" name="nama_petugas" id="nama_petugas" placeholder="Nama Petugas" required>
                         </div>
                         <!-- End Form -->
 

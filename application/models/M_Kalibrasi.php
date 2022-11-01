@@ -24,7 +24,7 @@ class M_Kalibrasi extends CI_Model
         $config['upload_path']          = './upload/kalibrasi/file_lampiran/';
         $config['allowed_types']        = 'gif|jpg|png|pdf|doc|docx';
         //$config['file_name']            = $this->input->post('nama_alat');
-        $config['encrypt_name']         = true;
+        $config['encrypt_name']         = false;
         $config['overwrite']            = true;
         $config['max_size']             = 5094; // 1MB
 
