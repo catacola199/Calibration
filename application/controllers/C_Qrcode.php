@@ -26,7 +26,8 @@ class C_Qrcode extends CI_Controller
 	// Get Save User
 	public function simpan_Qrcode()
 	{
-		$dataalat = $this->M_Qrcode->getAlatID($this->input->post('id_alat'));
+		$id =$this->input->post('id_alat');
+		$dataalat = $this->M_Qrcode->getAlatID($id);
 		$data =
 			$dataalat->nama_alat. "  " .
 			'dicobaaa'

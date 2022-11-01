@@ -22,7 +22,7 @@ class M_Qrcode extends CI_Model
 
     public function getAlatID($id)
     {
-        return $this->db->get_where($this->_alat, ['id' => $id])->row();
+        return $this->db->get_where($this->_alat, ['id_alat' => $id])->row();
     }
 
     public function getAllKalbirasi()
