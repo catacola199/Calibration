@@ -26,23 +26,22 @@ class C_Qrcode extends CI_Controller
 	// Get Save User
 	public function simpan_Qrcode()
 	{
-		$id =$this->input->post('id_alat');
+		$id = $this->input->post('id_alat');
 		$dataalat = $this->M_Qrcode->getAlatID($id);
 		$data =
-			$dataalat->nama_alat. "  " .
-			'dicobaaa'
-			;
+			$dataalat->nama_alat . "  " .
+			'dicobaaa';
 
 
 		$qr = $this->generate_qrcode($data);
-		
+
 		$this->M_Qrcode->simpanDataQr($qr);
 		$this->session->set_flashdata('notif', 'Data berhasil disimpan');
 		redirect(base_url('qrcode'));
 	}
 
 
-	
+
 	// Delete User akun
 	public function delete_Qrcode($id = null)
 	{
@@ -84,11 +83,13 @@ class C_Qrcode extends CI_Controller
 		$params['savename'] = FCPATH . $config['imagedir'] . $save_name;
 
 		$this->ciqrcode->generate($params);
-
+		$id2 = $this->input->post('id_alat');
+		$dataalat = $this->M_Qrcode->getAlatID($id2);
+		$nama = $dataalat->nama_alat;
 		/* Return Data */
 		$return = array(
-			'text' => $data,
-			'file'    => $dir . $save_name
+			'text' 		=> $nama,
+			'file'      => $dir . $save_name
 		);
 		return $return;
 	}
