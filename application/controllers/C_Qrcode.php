@@ -29,8 +29,11 @@ class C_Qrcode extends CI_Controller
 		$id = $this->input->post('id_alat');
 		$dataalat = $this->M_Qrcode->getAlatID($id);
 		$data =
-			$dataalat->nama_alat . "  " .
-			'dicobaaa';
+			"SIDIC Inventory"."\n".
+			"Nama Alat : ".$dataalat->nama_alat . "\n" .
+			"Merk Alat : ".$dataalat->merk_alat . "\n" .
+			"Tipe Alat : ".$dataalat->tipe_alat . "\n" .
+			"No Seri Alat : ".$dataalat->noseri_alat;
 
 
 		$qr = $this->generate_qrcode($data);
@@ -88,15 +91,15 @@ class C_Qrcode extends CI_Controller
 		$nama = $dataalat->nama_alat;
 		/* Return Data */
 		$return = array(
-			'text' 		=> $nama,
-			'file'      => $dir . $save_name
+			'id_alat' 		=> $id2,
+			'file_qr'      => $dir . $save_name
 		);
 		return $return;
 	}
 
 	public function download_qrcode($id)
 	{
-		$data = $this->db->get_where('tes_qrcode', ['id' => $id])->row();
-		force_download($data->file, NULL);
+		$data = $this->db->get_where('qr_code', ['id_qr' => $id])->row();
+		force_download($data->file_qr, NULL);
 	}
 }

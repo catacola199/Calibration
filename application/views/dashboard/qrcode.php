@@ -74,19 +74,19 @@
                                             foreach ($qr as $data) : ?>
                                                 <tr style="text-align:center;">
                                                     <td><?= $i++ ?></td>
-                                                    <td><?php echo $data->text ?></td>
-                                                    <td><img src="<?php echo base_url($data->file) ?>" alt="Foto" width="50" /></td>
+                                                    <td><?php echo $data->id_alat ?></td>
+                                                    <td><?php echo $data->tgl_buat ?></td>
+                                                    <td><img src="<?php echo base_url($data->file_qr) ?>" alt="Foto" width="50" /></td>
+
                                                     <td>
-                                                        <a href="<?php echo site_url('C_Qrcode/download_qrcode/' . $data->id) ?>" class="btn btn-small btn-success">
-                                                            <i class="fas fa-file-download"></i> Download QRcode
+                                                        <a href="<?php echo site_url('C_Qrcode/download_qrcode/' . $data->id_qr) ?>" class="btn btn-small btn-success" data-toggle="tooltip" data-placement="bottom" title="Download">
+                                                            <i class="feather-icon" data-feather="download"></i>
                                                         </a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#!" class="btn btn-sm btn-outline-success">
-                                                            <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
+                                                        <a href="#!" class="btn btn-sm btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                                                            <i class="feather-icon" data-feather="edit"></i>
                                                         </a>
-                                                        <a onclick="" href="#!" class="btn btn-sm btn-outline-danger">
-                                                            <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
+                                                        <a onclick="" href="#!" class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
+                                                            <i class="feather-icon" data-feather="trash"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

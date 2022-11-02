@@ -2,7 +2,7 @@
 
 class M_Qrcode extends CI_Model
 {
-    private $_table = "tes_qrcode";
+    private $_table = "qr_code";
     private $_alat = "alat_kalibrasi";
     public function getAlldata()
     {
