@@ -35,7 +35,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a>
-                                        <i class="fas fa-angle-double-right"></i> Master Alat
+                                        <i class="fas fa-angle-double-right"></i> Master QR Code
                                     </li>
                                 </ol>
                             </nav>
@@ -50,7 +50,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Daftar Alat</h4>
+                                <h4 class="card-title">Daftar QR Code</h4>
                                 <hr>
                                 <h6 class="card-subtitle">
                                     <div class="btn-list">
@@ -82,10 +82,8 @@
                                                         <a href="<?php echo site_url('C_Qrcode/download_qrcode/' . $data->id_qr) ?>" class="btn btn-small btn-success" data-toggle="tooltip" data-placement="bottom" title="Download">
                                                             <i class="feather-icon" data-feather="download"></i>
                                                         </a>
-                                                        <a href="#!" class="btn btn-sm btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Edit">
-                                                            <i class="feather-icon" data-feather="edit"></i>
-                                                        </a>
-                                                        <a onclick="" href="#!" class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
+
+                                                        <a onclick="" href="#!" class="btn btn-small btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
                                                             <i class="feather-icon" data-feather="trash"></i>
                                                         </a>
                                                     </td>
