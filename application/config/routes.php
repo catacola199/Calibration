@@ -66,4 +66,5 @@ $route['alatKalibrasis'] = 'alatKalibrasi';
 $route['kalibrasis'] = 'kalibrasi';
 $route['pemeliharaankalibrasis'] = 'pemeliharaankalibrasi';
 $route['qrcode'] = 'c_qrcode';
+$route['scans'] = 'scan1';
 // $route['login'] = 'login/auth';

@@ -1,0 +1,149 @@
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+
+<section class='content'>
+
+
+    <script type="text/javascript" src="<?php echo base_url() ?>template/dist/js/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/qrcodelib.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/webcodecamjquery.js"></script>
+    <script src="<?php echo base_url() ?>assets/app/core/scan.js"></script>
+    </div><!-- /.box-body -->
+
+</section><!-- /.content -->
+<script src="<?php echo base_url() ?>template/plugins/sweetalert/sweetalert.min.js"></script>
+<script>
+    <?= $this->session->flashdata('messageAlert'); ?>
+</script>
+
+<!-- Head -->
+<?php $this->load->view('component/_head') ?>
+<!-- Head -->
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <span class="loader"></span>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- ============================================================== -->
+
+
+        <!-- ****** Top Header -->
+        <?php $this->load->view('component/_header') ?>
+        <!-- ****** Top Header -->
+
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <?php $this->load->view('component/_sidebar') ?>
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb and right sidebar toggle -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <!-- <h6 class="page-title text-truncate text-dark font-weight-medium mb-1">Welcome Jason!</h6> -->
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a>
+                                        <i class="fas fa-angle-double-right"></i> Master QR Code
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- Container fluid  -->
+            <div class="container text-center" id="QR-Code ">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="navbar-form navbar-left">
+                            <h4>Arahkan QR Code ke kamera</h4>
+                        </div>
+                        <div class="navbar-form navbar-center">
+                            <select class="form-control" id="camera-select"></select>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="col-md-11 ">
+                            <div class="well" style="position: middle;">
+                                <canvas width="400" height="400" id="webcodecam-canvas"></canvas>
+                                <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
+                                <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Row -->
+                    <!-- End Location and Earnings Charts Section -->
+
+                    <!-- Start Top Leader Table -->
+                    <!-- <?php //$this->load->view('component/_table') 
+                            ?> -->
+                    <!-- End Top Leader Table -->
+                </div>
+
+                <!-- End Container fluid  -->
+
+                <!-- footer -->
+                <?php $this->load->view('component/_footer') ?>
+                <!-- End footer -->
+
+            </div>
+            <!-- End Page wrapper  -->
+
+        </div>
+        <!-- End Wrapper -->
+
+        <!-- Jquery -->
+        <?php $this->load->view('component/_jquery') ?>
+        <!-- End JQuery -->
+
+        <!-- Form Add Modal -->
+        <div id="success-header-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header modal-colored-header bg-primary">
+                        <h4 class="modal-title" id="success-header-modalLabel">Form QRcode
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form -->
+                        <form action="<?php echo base_url('C_Qrcode/simpan_Qrcode') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
+                            <div class="">
+                                <label for="nama_alat"><strong>Nama Alat</strong></label>
+                                <select class="form-control" name="id_alat" id="id_alat">
+                                    <option selected>Choose...</option>
+                                    <?php foreach ($alat as $l) { ?>
+                                        <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <!-- End Form -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Generate</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <script>
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>

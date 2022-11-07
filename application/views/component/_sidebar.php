@@ -56,6 +56,11 @@
                                 <span class="hide-menu">Pemeliharaan </span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a href="<?= base_url('scans') ?>" class="sidebar-link">
+                                <span class="hide-menu">Scan </span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

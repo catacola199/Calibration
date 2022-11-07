@@ -7,6 +7,12 @@
 <script src="<?= base_url('src') ?>/dist/js/feather.min.js"></script>
 <script src="<?= base_url('src') ?>/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
 <script src="<?= base_url('src') ?>/dist/js/sidebarmenu.js"></script>
+<script src="<?= base_url('src') ?>/assets/qrcodelib.js"></script>
+<script src="<?= base_url('src') ?>/assets/webcodecamjquery.js"></script>
+<script src="<?= base_url('src') ?>/assets/webcam.js"></script>
+<script src="<?= base_url('src') ?>/assets/webcam.min.js"></script>
+<script src="<?= base_url('src') ?>/assets/app/core/scan.js"></script>
+
 <!--Custom JavaScript -->
 <script src="<?= base_url('src') ?>/dist/js/custom.js"></script>
 <script src="<?= base_url('src') ?>/dist/js/pages/dashboards/dashboard1.min.js"></script>
@@ -20,7 +26,7 @@
 
 <!-- Separate -->
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#multi_col_order').DataTable();
     });
 
@@ -114,7 +120,7 @@
 
     var MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#password_pengguna_konfirm").keyup(checkPasswordMatch);
         $('#image').change(function() {
             fileSize = this.files[0].size;
@@ -132,7 +138,6 @@
             }
         });
     });
-
 </script>
 
 <?php if ($this->session->flashdata('notif')) : ?>
