@@ -69,74 +69,80 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card" id="datatable1">
-                            <div class="card-body">
-                                <h4 class="card-title">Daftar Alat</h4>
-                                <hr>
-                                <h6 class="card-subtitle">
-                                    <div class="btn-list">
-                                        <a href="#" id="refresh_tabel" class="btn btn-outline-primary float-right"><i class="fas fa-redo-alt" data-toggle="tooltip" data-placement="bottom" title="refresh"></i> </a>
-                                        <button class="btn btn-outline-success float-right" data-toggle="modal" data-target="#success-header-modal"><i class="fas fa-user-plus" data-toggle="tooltip" data-placement="bottom" title="Add"></i></button>
+                <div class="container ">
+                    <div class="row">
+                        <div class="col">
+                            <?php foreach ($alat as $data) : ?>
+                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white">Data Alat</h5>
+                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
+                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
+                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
+                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
+                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
+                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
+                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
                                     </div>
-                                </h6>
-                                <div class="table-responsive">
-                                    <table id="multi_col_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
-                                        <thead class="bg-primary text-white">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nama</th>
-                                                <th>Merk</th>
-                                                <th>Tipe</th>
-                                                <th>No Seri</th>
-                                                <th>Lokasi</th>
-                                                <th>Tanggal Pengadaan</th>
-                                                
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $i = 1;
-                                            foreach ($alat as $data) : ?>
-                                                <tr>
-                                                    <td><?= $i++ ?></td>
-                                                    <td><?php echo $data->nama_alat ?></td>
-                                                    <td><?php echo $data->merk_alat ?></td>
-                                                    <td><?php echo $data->tipe_alat ?></td>
-                                                    <td><?php echo $data->noseri_alat ?></td>
-                                                    <td><?php echo $data->lokasi_alat ?></td>
-                                                    <td><?php echo $data->tglpengadaan_alat ?></td>
-                                                    
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col">
+                            <?php foreach ($alat as $data) : ?>
+                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white">Data Kalibrasi</h5>
+                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
+                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
+                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
+                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
+                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
+                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
+                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col">
+                            <?php foreach ($alat as $data) : ?>
+                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white">Data Pemeliharaan</h5>
+                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
+                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
+                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
+                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
+                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
+                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
+                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- ============================================================== -->
-                <!-- End Row -->
-                <!-- End Location and Earnings Charts Section -->
-
-                <!-- Start Top Leader Table -->
-                <!-- <?php //$this->load->view('component/_table') 
-                        ?> -->
-                <!-- End Top Leader Table -->
             </div>
 
-            <!-- End Container fluid  -->
 
-            <!-- footer -->
-            <?php $this->load->view('component/_footer') ?>
-            <!-- End footer -->
+            <!-- ============================================================== -->
+            <!-- End Row -->
+            <!-- End Location and Earnings Charts Section -->
 
+            <!-- Start Top Leader Table -->
+            <!-- <?php //$this->load->view('component/_table') 
+                    ?> -->
+            <!-- End Top Leader Table -->
         </div>
-        <!-- End Page wrapper  -->
+
+        <!-- End Container fluid  -->
+
+        <!-- footer -->
+        <?php $this->load->view('component/_footer') ?>
+        <!-- End footer -->
+
+    </div>
+    <!-- End Page wrapper  -->
 
     </div>
     <!-- End Wrapper -->
@@ -148,7 +154,6 @@
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();
-            $('#datatable1').hide();
+            $('#kartu').hide();
         });
-
     </script>

@@ -52,14 +52,14 @@ class M_Kalibrasi extends CI_Model
             return array_map('unlink', glob(FCPATH . "upload/kalbirasi/file/$filename.*"));
         }
     }
-    public function del_alatkalibrasi($id)
+    public function del_kalibrasi($id)
     {
 
         $this->_deleteFile($id);
         return $this->db->delete('t_kalibrasi', array("id_kalibrasi" => $id));
     }
 
-    public function updatedataalatkalibrasi($data, $id)
+    public function updatedatakalibrasi($data, $id)
     {
         $this->db->update('t_kalibrasi', $data, $id);
         return TRUE;

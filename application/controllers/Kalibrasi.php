@@ -38,7 +38,7 @@ class Kalibrasi extends CI_Controller
 	}
 
 	// Edit User
-	public function edit_alatkalibrasi($id)
+	public function edit_kalibrasi($id)
 	{
 		// $data["role"] = $this->All_model->getAllRole();
 		$data["kalibrasi"] = $this->M_Kalibrasi->getID($id);
@@ -46,7 +46,7 @@ class Kalibrasi extends CI_Controller
 	}
 
 	// Update User
-	public function update_alatkalibrasi()
+	public function update_kalibrasi()
 	{
 		$id = array(
 			'id_alat' => $this->input->post('id_alat')
@@ -60,17 +60,17 @@ class Kalibrasi extends CI_Controller
 			'lokasi_alat'	 	    => $this->input->post('lokasi_alat'),
 			'tglpengadaan_alat'	    => $this->input->post('tglpengadaan_alat')
 		);
-		$this->M_Kalibrasi->updatedataalatkalibrasi($data, $id);
+		$this->M_Kalibrasi->updatedatakalibrasi($data, $id);
 		$this->session->set_flashdata('notif', 'Data berhasil diupdate');
 		redirect(base_url('kalibrasis'));
 	}
 
 	// Delete User akun
-	public function delete_alatkalibrasi($id = null)
+	public function delete_kalibrasi($id = null)
 	{
 		if (!isset($id)) show_404();
 
-		if ($this->M_Kalibrasi->del_alatkalibrasi($id)) {
+		if ($this->M_Kalibrasi->del_kalibrasi($id)) {
 			$this->session->set_flashdata('notif', 'Data berhasil dihapus');
 			redirect(base_url('kalibrasis'));
 		}
