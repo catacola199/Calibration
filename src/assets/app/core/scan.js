@@ -5,7 +5,7 @@ var arg = {
        // $.post("../cek.php", { noijazah: result.code} );
         var redirect = 'scan1/cek_id';
 
-        $.redirectPost(redirect, {id_karyawan: result.code});
+        $.redirectPost(redirect, {id_alat: result.code});
     }
 };
 

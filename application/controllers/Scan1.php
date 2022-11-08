@@ -9,6 +9,7 @@ class Scan1 extends Ci_Controller
 		$this->load->model('All_model');
 		$this->load->model('M_User');
 		$this->load->model('M_AlatKalibrasi');
+		$this->load->model('Scan_model');
 		if ($this->All_model->isNotLogin()) redirect(site_url(''));
 		$this->load->helper('url');
 	}
@@ -40,38 +41,14 @@ class Scan1 extends Ci_Controller
 
 	function cek_id()
 	{
-		$user = $this->user;
-		$result_code = $this->input->post('id_karyawan');
-		$tgl = date('Y-m-d');
-		$jam_klr = date('h:i:s');
-		$jam_msk = date('h:i:s');
+		$result_code = $this->input->post('id_alat');
 		$cek_id = $this->Scan_model->cek_id($result_code);
-		$cek_abs_klr = $this->Scan_model->kar_abs_klr($result_code, $tgl);
-		if (!$cek_id) {
-?>
-			<script>
-				alert('Data tidak ditemukan , harap memasukan QR CODE sesuai NIK masing-masing!');
-			</script> <?php
-						$url = base_url() . 'scan1';
-						$this->session->set_flashdata('messageAlert', $this->messageAlert('error', 'absen gagal'));
-						header("refresh:1;url=$url");
-					} else if ($cek_abs_klr && $jam_msk != '00:00:00') { ?>
-			<script>
-				alert('Selamat tinggal ');
-			</script> <?php
-						$this->Scan_model->kar_abs_klr($result_code, $tgl);
-						$url = base_url() . 'scan1';
-						$this->session->set_flashdata('messageAlert', $this->messageAlert('success', 'absen pulang'));
-
-						header("refresh:1;url=$url");
-					} else if ($cek_id) { ?>
-			<script>
-				alert('kehadiran telah di input');
-			</script> <?php
-						$this->Scan_model->kar_abs_msk($result_code);
-						$url = base_url() . 'scan1';
-						$this->session->set_flashdata('messageAlert', $this->messageAlert('success', 'absen masuk'));
-						header("refresh:1;url=$url");
-					}
-				}
-			}
+		if(!$cek_id){
+            $this->session->set_flashdata('error','Qrcode tidak ditemukan, coba lagi!!');
+            redirect('scans');
+        }else{
+			$this->session->set_flashdata('notif','Benar '.$result_code);
+            redirect('scans');
+		}
+	}
+}
