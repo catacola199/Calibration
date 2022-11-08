@@ -54,29 +54,23 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-white">Data Alat</h5>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <?php foreach ($alat as $data1) : ?>
-                                        <p class="card-text">Nama Alat :<?php echo $data1->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data1->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data1->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data1->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data1->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data1->tglpengadaan_alat ?> </p>
-                                    <?php endforeach; ?>
+                                        <p class="card-text">Nama Alat :<?php echo $alat->nama_alat ?> </p>
+                                        <p class="card-text">Merk Alat :<?php echo $alat->merk_alat ?> </p>
+                                        <p class="card-text">Tipe Alat :<?php echo $alat->tipe_alat ?> </p>
+                                        <p class="card-text">No Seri Alat :<?php echo $alat->noseri_alat ?> </p>
+                                        <p class="card-text">Lokasi Alat :<?php echo $alat->lokasi_alat ?> </p>
+                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $alat->tglpengadaan_alat ?> </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
                                     <p class="card-text">Riwayat Kalibrasi </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <?php foreach ($kalibrasi as $data2) : ?>
-                                        <p class="card-text">Tanggal Kalibrasi :<?php echo $data2->tgl_kalibrasi ?> </p>
-                                        <p class="card-text">Lampiran File :<?php echo $data2->lampiran ?> </p>
-                                        <p class="card-text">Quality Pass :<?php echo $data2->quality_pass ?> </p>
-                                    <?php endforeach; ?>
+                                        <p class="card-text">Tanggal Kalibrasi :<?php echo $kalibrasi->tgl_kalibrasi ?> </p>
+                                        <p class="card-text">Lampiran File :<?php echo $kalibrasi->lampiran ?> </p>
+                                        <p class="card-text">Quality Pass :<?php echo $kalibrasi->quality_pass ?> </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
                                     <p class="card-text">Riwayat Pemeliharaan </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <?php foreach ($pemeliharaan as $data3) : ?>
-                                        <<p class="card-text">Tanggal Pemeliharaan :<?php echo $data2->tgl_peliharaan ?> </p>
-                                        <p class="card-text">Petugas Pemeliharaan :<?php echo $data2->petugas ?> </p>
-                                    <?php endforeach; ?>
+                                        <p class="card-text">Tanggal Pemeliharaan :<?php echo $pemeliharaan->tgl_peliharaan ?> </p>
+                                        <p class="card-text">Petugas Pemeliharaan :<?php echo $pemeliharaan->petugas ?> </p>
                                 </div>
                             </div>
 

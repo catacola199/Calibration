@@ -56,14 +56,10 @@
                                 <select class="form-control" id="camera-select"></select>
                             </div>
                         </div>
-                        <div class="panel-body text-center">
+                        <div class="panel-body text-center mt-3 mb-3">
                             <div class="col-md-11 ">
                                 <div class="well" style="position: middle;">
-                                    <canvas width="400" height="400" id="webcodecam-canvas"></canvas>
-                                    <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+                                    <canvas class="img-fluid" id="webcodecam-canvas" style="border-radius:1rem;"></canvas>
                                 </div>
                             </div>
                         </div>
