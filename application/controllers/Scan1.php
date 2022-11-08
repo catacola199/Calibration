@@ -8,6 +8,7 @@ class Scan1 extends Ci_Controller
 		parent::__construct();
 		$this->load->model('All_model');
 		$this->load->model('M_User');
+		$this->load->model('M_AlatKalibrasi');
 		if ($this->All_model->isNotLogin()) redirect(site_url(''));
 		$this->load->helper('url');
 	}
@@ -32,8 +33,9 @@ class Scan1 extends Ci_Controller
 
 	function index()
 	{
-
-		$this->load->view("dashboard/scan_v1");
+		$data["alat"] = $this->M_AlatKalibrasi->getAllKalbirasi();
+		$data["role"] = $this->All_model->getAllRole();
+		$this->load->view("dashboard/scan_v1",$data);
 	}
 
 	function cek_id()

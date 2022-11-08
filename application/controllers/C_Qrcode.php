@@ -28,12 +28,7 @@ class C_Qrcode extends CI_Controller
 	{
 		$id = $this->input->post('id_alat');
 		$dataalat = $this->M_Qrcode->getAlatID($id);
-		$data =
-			"SIDIC Inventory"."\n".
-			"Nama Alat : ".$dataalat->nama_alat . "\n" .
-			"Merk Alat : ".$dataalat->merk_alat . "\n" .
-			"Tipe Alat : ".$dataalat->tipe_alat . "\n" .
-			"No Seri Alat : ".$dataalat->noseri_alat;
+		$data = $dataalat->id_alat;
 
 
 		$qr = $this->generate_qrcode($data);
