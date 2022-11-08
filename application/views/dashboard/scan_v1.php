@@ -59,7 +59,7 @@
                         <div class="panel-body text-center mt-3 mb-3">
                             <div class="col-md-11 ">
                                 <div class="well" style="position: middle;">
-                                    <canvas class="img-fluid" id="webcodecam-canvas" style="border-radius:1rem; width: 250px; height: 250px;"></canvas>
+                                    <canvas class="img-fluid" id="webcodecam-canvas" style="border-radius:1rem;"></canvas>
                                 </div>
                             </div>
                         </div>
