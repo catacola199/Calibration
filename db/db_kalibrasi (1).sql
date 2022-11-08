@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 04:13 AM
+-- Generation Time: Nov 08, 2022 at 11:17 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,7 +42,8 @@ CREATE TABLE `alat_kalibrasi` (
 --
 
 INSERT INTO `alat_kalibrasi` (`id_alat`, `nama_alat`, `merk_alat`, `tipe_alat`, `noseri_alat`, `lokasi_alat`, `tglpengadaan_alat`) VALUES
-(6, 'asd', 'asd', 'asd', 'asd', 'asd', '01/11/2022');
+(8, 'asd', 'asd', 'asd', 'asd', 'asd', '01/12/2022'),
+(9, '123', '123', '123', '123', '123', '04/07/2030');
 
 -- --------------------------------------------------------
 
@@ -89,6 +90,39 @@ CREATE TABLE `p_kalibrasi` (
   `petugas` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `p_kalibrasi`
+--
+
+INSERT INTO `p_kalibrasi` (`id_pemeliharaan`, `tgl_pemeliharaan`, `id_alat`, `petugas`) VALUES
+(2, '08/12/2022', 6, 'aaaaaa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `qr_code`
+--
+
+CREATE TABLE `qr_code` (
+  `id_qr` int(11) NOT NULL,
+  `id_alat` int(11) NOT NULL,
+  `tgl_buat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `file_qr` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `qr_code`
+--
+
+INSERT INTO `qr_code` (`id_qr`, `id_alat`, `tgl_buat`, `file_qr`) VALUES
+(1, 7, '2022-11-02 08:28:51', 'upload/qrcode/50726f736c69646520206170612020333273722020303231333132333132.png'),
+(2, 6, '2022-11-02 08:56:29', 'upload/qrcode/617364200a20617364200a20617364200a20617364.png'),
+(3, 7, '2022-11-03 03:10:40', 'upload/qrcode/534944494320496e76656e746f72790a4e616d6120416c6174203a2050726f736c6964650a4d65726b20416c6174203a206170610a54697065'),
+(4, 6, '2022-11-03 03:11:50', 'upload/qrcode/534944494320496e76656e746f72790a4e616d6120416c6174203a206173640a4d65726b20416c6174203a206173640a5469706520416c6174'),
+(5, 6, '2022-11-03 03:13:28', 'upload/qrcode/.png'),
+(6, 6, '2022-11-03 03:13:43', 'upload/qrcode/534944494320496e76656e746f72790a4e616d6120416c6174203a206173640a4d65726b20416c6174203a206173640a5469706520416c6174'),
+(7, 6, '2022-11-08 08:08:15', 'upload/qrcode/36.png');
+
 -- --------------------------------------------------------
 
 --
@@ -108,25 +142,6 @@ INSERT INTO `role_pengguna` (`id_role`, `nama_role`) VALUES
 (1, 'Superadmin'),
 (2, 'Admin'),
 (3, 'Pengguna');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tes_qrcode`
---
-
-CREATE TABLE `tes_qrcode` (
-  `id` int(11) NOT NULL,
-  `text` text NOT NULL,
-  `file` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tes_qrcode`
---
-
-INSERT INTO `tes_qrcode` (`id`, `text`, `file`) VALUES
-(1, 'adfadf', 'adfadf');
 
 -- --------------------------------------------------------
 
@@ -160,9 +175,7 @@ CREATE TABLE `t_kalibrasi` (
 --
 
 INSERT INTO `t_kalibrasi` (`id_kalibrasi`, `id_alat`, `tgl_kalibrasi`, `lampiran`, `quality_pass`) VALUES
-(9, 6, '16/11/2022', 'default.pdf', 'Layak'),
-(10, 6, '23/11/2022', 'default.pdf', 'Tidak Layak'),
-(11, 6, '23/11/2022', 'default.pdf', 'Tidak Layak');
+(20, 9, '24/11/2022', 'kiki99.pdf', 'Tidak Layak');
 
 --
 -- Indexes for dumped tables
@@ -181,10 +194,10 @@ ALTER TABLE `p_kalibrasi`
   ADD PRIMARY KEY (`id_pemeliharaan`);
 
 --
--- Indexes for table `tes_qrcode`
+-- Indexes for table `qr_code`
 --
-ALTER TABLE `tes_qrcode`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `qr_code`
+  ADD PRIMARY KEY (`id_qr`);
 
 --
 -- Indexes for table `token_pengguna`
@@ -206,19 +219,19 @@ ALTER TABLE `t_kalibrasi`
 -- AUTO_INCREMENT for table `alat_kalibrasi`
 --
 ALTER TABLE `alat_kalibrasi`
-  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `p_kalibrasi`
 --
 ALTER TABLE `p_kalibrasi`
-  MODIFY `id_pemeliharaan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pemeliharaan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tes_qrcode`
+-- AUTO_INCREMENT for table `qr_code`
 --
-ALTER TABLE `tes_qrcode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `qr_code`
+  MODIFY `id_qr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `token_pengguna`
@@ -230,7 +243,7 @@ ALTER TABLE `token_pengguna`
 -- AUTO_INCREMENT for table `t_kalibrasi`
 --
 ALTER TABLE `t_kalibrasi`
-  MODIFY `id_kalibrasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kalibrasi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
