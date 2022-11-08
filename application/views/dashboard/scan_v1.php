@@ -69,58 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container ">
-                    <div class="row">
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Alat</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Kalibrasi</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Pemeliharaan</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
 
