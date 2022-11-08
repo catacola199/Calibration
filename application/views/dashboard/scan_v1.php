@@ -56,72 +56,15 @@
                                 <select class="form-control" id="camera-select"></select>
                             </div>
                         </div>
-                        <div class="panel-body text-center">
+                        <div class="panel-body text-center mt-3 mb-3">
                             <div class="col-md-11 ">
                                 <div class="well" style="position: middle;">
-                                    <canvas width="400" height="400" id="webcodecam-canvas"></canvas>
-                                    <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-rightTop" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-leftBottom" style="opacity: 0.5;"></div>
-                                    <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
+                                    <canvas class="img-fluid" id="webcodecam-canvas" style="border-radius:1rem; width: 250px; height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container ">
-                    <div class="row">
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Alat</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Kalibrasi</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="col">
-                            <?php foreach ($alat as $data) : ?>
-                                <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white">Data Pemeliharaan</h5>
-                                        <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $data->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $data->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $data->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $data->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $data->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $data->tglpengadaan_alat ?> </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
 
