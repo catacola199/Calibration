@@ -48,7 +48,10 @@ class Scan1 extends Ci_Controller
             redirect('scans');
         }else{
 			$this->session->set_flashdata('notif','Benar '.$result_code);
-            redirect('scans');
+			$data["alat"] = $this->Scan_model->getDataAlat($result_code);
+			$data["kalibrasi"] = $this->Scan_model->getDataKalibrasi($result_code);
+			$data["pemeliharaan"] = $this->Scan_model->getDataPemeliharaan($result_code);
+            $this->load->view("dashboard/h_scan", $data);
 		}
 	}
 }
