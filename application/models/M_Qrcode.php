@@ -6,7 +6,11 @@ class M_Qrcode extends CI_Model
     private $_alat = "alat_kalibrasi";
     public function getAlldata()
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->select('*');
+        $this->db->from('alat_kalibrasi');
+        $this->db->join('qr_code', 'qr_code.id_alat = alat_kalibrasi.id_alat');
+        $query = $this->db->get();
+        return  $query->result();
     }
 
     public function simpanDataQr($qr)

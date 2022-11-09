@@ -54,23 +54,36 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-white">Data Alat</h5>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                        <p class="card-text">Nama Alat :<?php echo $alat->nama_alat ?> </p>
-                                        <p class="card-text">Merk Alat :<?php echo $alat->merk_alat ?> </p>
-                                        <p class="card-text">Tipe Alat :<?php echo $alat->tipe_alat ?> </p>
-                                        <p class="card-text">No Seri Alat :<?php echo $alat->noseri_alat ?> </p>
-                                        <p class="card-text">Lokasi Alat :<?php echo $alat->lokasi_alat ?> </p>
-                                        <p class="card-text">Tanggal Alat Tiba :<?php echo $alat->tglpengadaan_alat ?> </p>
+                                    <p class="card-text">Nama Alat :<?php echo $alat->nama_alat ?> </p>
+                                    <p class="card-text">Merk Alat :<?php echo $alat->merk_alat ?> </p>
+                                    <p class="card-text">Tipe Alat :<?php echo $alat->tipe_alat ?> </p>
+                                    <p class="card-text">No Seri Alat :<?php echo $alat->noseri_alat ?> </p>
+                                    <p class="card-text">Lokasi Alat :<?php echo $alat->lokasi_alat ?> </p>
+                                    <p class="card-text">Tanggal Alat Tiba :<?php echo $alat->tglpengadaan_alat ?> </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
                                     <p class="card-text">Riwayat Kalibrasi </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
+                                    <?php if (is_null($kalibrasi->id_kalibrasi)) : ?>
+                                        <p class="card-text">Tanggal Kalibrasi : - </p>
+                                        <p class="card-text">Lampiran File : - </p>
+                                        <p class="card-text">Quality Pass : - </p>
+                                    <?php else : ?>
                                         <p class="card-text">Tanggal Kalibrasi :<?php echo $kalibrasi->tgl_kalibrasi ?> </p>
                                         <p class="card-text">Lampiran File :<?php echo $kalibrasi->lampiran ?> </p>
                                         <p class="card-text">Quality Pass :<?php echo $kalibrasi->quality_pass ?> </p>
+                                    <?php endif; ?>
+
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
                                     <p class="card-text">Riwayat Pemeliharaan </p>
                                     <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
+                                    <?php if (null === $pemeliharaan->id_pemeliharaan) : ?>
+                                        <p class="card-text">Tanggal Pemeliharaan :- </p>
+                                        <p class="card-text">Petugas Pemeliharaan :- </p>
+                                    <?php else : ?>
                                         <p class="card-text">Tanggal Pemeliharaan :<?php echo $pemeliharaan->tgl_pemeliharaan ?> </p>
                                         <p class="card-text">Petugas Pemeliharaan :<?php echo $pemeliharaan->petugas ?> </p>
+                                    <?php endif; ?>
+
                                 </div>
                             </div>
 
@@ -105,7 +118,7 @@
     <?php $this->load->view('component/_jquery') ?>
     <!-- End JQuery -->
 
-   
+
 
     <script>
         $(function() {

@@ -74,7 +74,7 @@
                                             foreach ($qr as $data) : ?>
                                                 <tr style="text-align:center;">
                                                     <td><?= $i++ ?></td>
-                                                    <td><?php echo $data->id_alat ?></td>
+                                                    <td><?php echo $data->nama_alat ?></td>
                                                     <td><?php echo $data->tgl_buat ?></td>
                                                     <td><img src="<?php echo base_url($data->file_qr) ?>" alt="Foto" width="50" /></td>
 
