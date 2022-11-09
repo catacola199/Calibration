@@ -79,7 +79,7 @@
                                                     <td><?= $i++ ?></td>
                                                     <td><?php echo $data->nama_alat ?></td>
                                                     <td><?php echo $data->tgl_kalibrasi ?></td>
-                                                    <td><?php echo $data->lampiran ?></td>
+                                                    <td><a href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> <?php echo $data->lampiran ?> </a></td>
                                                     <td><?php echo $data->quality_pass ?></td>
                                                     <td>
                                                         <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_kalibrasi ?>">
