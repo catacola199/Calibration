@@ -52,13 +52,17 @@ class Kalibrasi extends CI_Controller
 			'id_alat' => $this->input->post('id_alat')
 		);
 
+		if (!empty($_FILES['lampiran']['name'])) {
+			$update_file = $this->M_Kalibrasi->_uploadFileKalibrasi();
+		} else {
+			$update_file = $this->input->post('oldlampiran');
+		}
+
 		$data = array(
-			'nama_alat'	      	    => $this->input->post('nama_alat'),
-			'merk_alat'	 		    => $this->input->post('merk_alat'),
-			'tipe_alat'     		=> $this->input->post('tipe_alat'),
-			'noseri_alat'	        => $this->input->post('noseri_alat'),
-			'lokasi_alat'	 	    => $this->input->post('lokasi_alat'),
-			'tglpengadaan_alat'	    => $this->input->post('tglpengadaan_alat')
+			'id_alat'	        => $this->input->post('id_alat'),
+			'tgl_kalibrasi'	    => $this->input->post('tgl_kalibrasi'),
+			'lampiran'		    => $this->$update_file,
+			'quality_pass'	    => $this->input->post('quality_pass')
 		);
 		$this->M_Kalibrasi->updatedatakalibrasi($data, $id);
 		$this->session->set_flashdata('notif', 'Data berhasil diupdate');

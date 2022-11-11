@@ -188,22 +188,22 @@
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Brosur</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Kalibrasi</h1>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
-                        <form action="<?php echo base_url('Kalibrasi/update_brosur') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+                        <form action="<?php echo base_url('Kalibrasi/update_kalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
 
-                            <input type="text" hidden name="id" id="id" value="<?= $data->id_kalibrasi ?>">
+                            <input type="text" hidden name="id_kalibrasi" id="id_kalibrasi" value="<?= $data->id_kalibrasi ?>">
 
-                          
+
                             <div class="">
                                 <label for="nama_alat"><strong>Nama Alat</strong></label>
                                 <select class="form-control" name="id_alat" id="id_alat">
-                                    
+
                                     <?php foreach ($alat as $l) { ?>
-                                        <?php if ($l['id_produk'] == $data->id_produk) : ?>
+                                        <?php if ($l['id_alat'] == $data->id_alat) : ?>
                                             <option value="<?php echo $l['id_alat']; ?>" <?= 'selected ="selected"' ?>><?php echo $l['nama_alat']; ?> </option>
                                         <?php else : ?>
                                             <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
@@ -221,21 +221,21 @@
                                 </span>
                             </div>
 
-
+                            <input type="hidden" name="oldlampiran" id="oldlampiran" value="<?= $data->lampiran ?>"/>
 
                             <div class="form-group">
                                 <label for="lampiran"><strong>Lampiran</strong></label>
-                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf" value="<?= $data->lampiran ?>">
+                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf" >
                             </div>
                             <div class="form-group">
                                 <label for="quality_pass"><strong>Quality Pass</strong></label>
                                 <select id="quality_pass" name="quality_pass" class="form-control">
-                                    
+
                                     <?php if ('Tidak Layak' == $data->quality_pass) : ?>
                                         <option>Layak</option>
-                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"'?> ><?= $data->quality_pass ?> </option>
-                                    <?php elseif('Layak' == $data->quality_pass) : ?>
-                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"'?> ><?= $data->quality_pass ?> </option>
+                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
+                                    <?php elseif ('Layak' == $data->quality_pass) : ?>
+                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
                                         <option>Tidak Layak</option>
                                     <?php else : ?>
                                         <option>Layak</option>

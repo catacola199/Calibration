@@ -182,6 +182,80 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+    <!-- Modal Edit -->
+    <?php foreach ($kalibrasi as $data) : ?>
+        <div class="modal fade" id="edit-<?= $data->id_kalibrasi ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Alat</h1>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="<?php echo base_url('Kalibrasi/update_brosur') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+
+                            <input type="text" hidden name="id" id="id" value="<?= $data->id_kalibrasi ?>">
+
+
+                            <div class="">
+                                <label for="nama_alat"><strong>Nama Alat</strong></label>
+                                <select class="form-control" name="id_alat" id="id_alat">
+
+                                    <?php foreach ($alat as $l) { ?>
+                                        <?php if ($l['id_produk'] == $data->id_produk) : ?>
+                                            <option value="<?php echo $l['id_alat']; ?>" <?= 'selected ="selected"' ?>><?php echo $l['nama_alat']; ?> </option>
+                                        <?php else : ?>
+                                            <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                        <?php endif; ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
+                            <div class="input-group date" id="pengadaan_alat">
+                                <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" value="<?= $data->tgl_kalibrasi ?>" />
+                                <span class="input-group-append">
+                                    <span class="input-group-text bg-light d-block">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="lampiran"><strong>Lampiran</strong></label>
+                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf" value="<?= $data->lampiran ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="quality_pass"><strong>Quality Pass</strong></label>
+                                <select id="quality_pass" name="quality_pass" class="form-control">
+
+                                    <?php if ('Tidak Layak' == $data->quality_pass) : ?>
+                                        <option>Layak</option>
+                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
+                                    <?php elseif ('Layak' == $data->quality_pass) : ?>
+                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
+                                        <option>Tidak Layak</option>
+                                    <?php else : ?>
+                                        <option>Layak</option>
+                                        <option>Tidak Layak</option>
+                                    <?php endif; ?>
+
+                                </select>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="<?php echo site_url('Kalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Edit End -->
+    <?php endforeach; ?>
+
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();
