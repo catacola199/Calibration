@@ -24,7 +24,7 @@ class Scan_model extends Ci_Model
         $this->db->from('t_kalibrasi');
         $this->db->where('t_kalibrasi.id_alat = alat_kalibrasi.id_alat');
         $query = $this->db->get_where('alat_kalibrasi', ['alat_kalibrasi.id_alat' => $id_alat]);
-        return  $query->row();
+        return  $query->result();
     }
 
     public function getDataPemeliharaan($id_alat)
@@ -33,6 +33,6 @@ class Scan_model extends Ci_Model
         $this->db->from('p_kalibrasi');
         $this->db->where('p_kalibrasi.id_alat = alat_kalibrasi.id_alat');
         $query = $this->db->get_where('alat_kalibrasi', ['alat_kalibrasi.id_alat' => $id_alat]);
-        return  $query->row();
+        return  $query->result();
     }
 }

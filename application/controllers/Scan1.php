@@ -47,7 +47,7 @@ class Scan1 extends Ci_Controller
             $this->session->set_flashdata('error','Qrcode tidak ditemukan, coba lagi!!');
             redirect('scans');
         }else{
-			$this->session->set_flashdata('notif','Benar '.$result_code);
+			// $this->session->set_flashdata('notif','Benar '.$result_code);
 			$data["alat"] = $this->Scan_model->getDataAlat($result_code);
 			$data["kalibrasi"] = $this->Scan_model->getDataKalibrasi($result_code);
 			$data["pemeliharaan"] = $this->Scan_model->getDataPemeliharaan($result_code);

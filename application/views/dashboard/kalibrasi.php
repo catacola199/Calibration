@@ -140,8 +140,7 @@
                         <div class="form-group">
                             <label for="nama_alat"><strong>Nama Alat</strong></label>
                             <select class="form-control" name="id_alat" id="id_alat">
-                                <option disabled value="">Choose...</option>
-                                <option selected>Choose...</option>
+                                <option selected disabled value="">Choose...</option>
                                 <?php foreach ($alat as $l) { ?>
                                     <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
                                 <?php } ?>

@@ -28,6 +28,9 @@
 <script>
     $(document).ready(function() {
         $('#multi_col_order').DataTable();
+        $('#pemeliharaan').DataTable();
+        $('#kalibrasi').DataTable();
+
     });
 
     function deleteConfirm(url) {

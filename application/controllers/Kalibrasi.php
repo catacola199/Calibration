@@ -48,11 +48,14 @@ class Kalibrasi extends CI_Controller
 	// Update User
 	public function update_kalibrasi()
 	{
+		$id_file= $this->input->post('id_kalibrasi');
+
 		$id = array(
-			'id_alat' => $this->input->post('id_alat')
+			'id_kalibrasi' => $this->input->post('id_kalibrasi')
 		);
 
 		if (!empty($_FILES['lampiran']['name'])) {
+			$this->M_Kalibrasi->_deleteFile($id_file);
 			$update_file = $this->M_Kalibrasi->_uploadFileKalibrasi();
 		} else {
 			$update_file = $this->input->post('oldlampiran');
@@ -61,7 +64,7 @@ class Kalibrasi extends CI_Controller
 		$data = array(
 			'id_alat'	        => $this->input->post('id_alat'),
 			'tgl_kalibrasi'	    => $this->input->post('tgl_kalibrasi'),
-			'lampiran'		    => $this->$update_file,
+			'lampiran'		    => $update_file,
 			'quality_pass'	    => $this->input->post('quality_pass')
 		);
 		$this->M_Kalibrasi->updatedatakalibrasi($data, $id);
