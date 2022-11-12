@@ -45,22 +45,21 @@ class M_Kalibrasi extends CI_Model
 
     public function _deleteFile($id)
     {
-        $brosur = $this->getID($id);
-
-        if ($brosur->file_brosur != "default.pdf") {
-            $filename = explode(".", $brosur->file_brosur)[0];
-            return array_map('unlink', glob(FCPATH . "upload/kalbirasi/file/$filename.*"));
+        $file = $this->getID($id);
+        if ($file->lampiran != "default.pdf") {
+            $filename = explode(".", $file->lampiran)[0];
+            return array_map('unlink', glob(FCPATH."upload/kalibrasi/file_lampiran/$filename.*"));
         }
     }
     public function del_kalibrasi($id)
     {
-
         $this->_deleteFile($id);
         return $this->db->delete('t_kalibrasi', array("id_kalibrasi" => $id));
     }
 
     public function updatedatakalibrasi($data, $id)
     {
+        
         $this->db->update('t_kalibrasi', $data, $id);
         return TRUE;
     }

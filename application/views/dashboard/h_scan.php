@@ -26,64 +26,112 @@
 
         <!-- Page wrapper  -->
         <div class="page-wrapper">
-            <!-- Bread crumb and right sidebar toggle -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-7 align-self-center">
-                        <!-- <h6 class="page-title text-truncate text-dark font-weight-medium mb-1">Welcome Jason!</h6> -->
-                        <div class="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a>
-                                        <i class="fas fa-angle-double-right"></i> Master Kalibrasi
-                                    </li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- Container fluid  -->
             <div class="container-fluid">
                 <div class="container ">
                     <div class="row">
                         <div class="col">
-
-                            <div class="card text-white bg-secondary mb-3" style="width: 20rem;">
+                            <div class="card mb-3">
                                 <div class="card-body">
-                                    <h5 class="card-title text-white">Data Alat</h5>
-                                    <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <p class="card-text">Nama Alat :<?php echo $alat->nama_alat ?> </p>
-                                    <p class="card-text">Merk Alat :<?php echo $alat->merk_alat ?> </p>
-                                    <p class="card-text">Tipe Alat :<?php echo $alat->tipe_alat ?> </p>
-                                    <p class="card-text">No Seri Alat :<?php echo $alat->noseri_alat ?> </p>
-                                    <p class="card-text">Lokasi Alat :<?php echo $alat->lokasi_alat ?> </p>
-                                    <p class="card-text">Tanggal Alat Tiba :<?php echo $alat->tglpengadaan_alat ?> </p>
-                                    <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <p class="card-text">Riwayat Kalibrasi </p>
-                                    <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <?php if (is_null($kalibrasi->id_kalibrasi)) : ?>
-                                        <p class="card-text">Tanggal Kalibrasi : - </p>
-                                        <p class="card-text">Lampiran File : - </p>
-                                        <p class="card-text">Quality Pass : - </p>
-                                    <?php else : ?>
-                                        <p class="card-text">Tanggal Kalibrasi :<?php echo $kalibrasi->tgl_kalibrasi ?> </p>
-                                        <p class="card-text">Lampiran File :<?php echo $kalibrasi->lampiran ?> </p>
-                                        <p class="card-text">Quality Pass :<?php echo $kalibrasi->quality_pass ?> </p>
-                                    <?php endif; ?>
-
-                                    <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <p class="card-text">Riwayat Pemeliharaan </p>
-                                    <hr style="height:2px; width:50%; border-width:0; color:white; background-color:white">
-                                    <?php if (null === $pemeliharaan->id_pemeliharaan) : ?>
-                                        <p class="card-text">Tanggal Pemeliharaan :- </p>
-                                        <p class="card-text">Petugas Pemeliharaan :- </p>
-                                    <?php else : ?>
-                                        <p class="card-text">Tanggal Pemeliharaan :<?php echo $pemeliharaan->tgl_pemeliharaan ?> </p>
-                                        <p class="card-text">Petugas Pemeliharaan :<?php echo $pemeliharaan->petugas ?> </p>
-                                    <?php endif; ?>
-
+                                    <center><h3 class="card-title">Data Alat</h3></center>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Nama Alat</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->nama_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Merk Alat</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->merk_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Tipe Alat</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->tipe_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Nomor Seri Alat</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->noseri_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Lokasi Alat</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->lokasi_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-md-3">
+                                            <p class="card-text">Tanggal Alat Tiba</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-text"><?php echo ": ".$alat->tglpengadaan_alat ?> </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h4 class="card-title"><i class='bx bx-check'></i> Riwayat Kalibrasi </h4>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table id="kalibrasi" class="table table-bordered display no-wrap" style="width:100%">
+                                            <thead class="bg-primary text-white">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tanggal Kalibrasi</th>
+                                                    <th>Lampiran</th>
+                                                    <th>Quality Pass</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $i = 1;
+                                                foreach ($kalibrasi as $data) : ?>
+                                                    <tr>
+                                                        <td><?= $i++ ?></td>
+                                                        <td><?php echo $data->tgl_kalibrasi ?></td>
+                                                        <td><a href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> <?php echo $data->lampiran ?> </a></td>
+                                                        <td><?php echo $data->quality_pass ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <hr>
+                                    <h4 class="card-title"><i class='bx bx-check'></i> Riwayat Pemeliharaan </h4>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table id="pemeliharaan" class="table table-bordered display no-wrap" style="width:100%">
+                                            <thead class="bg-primary text-white">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tanggal Pemeliharaan</th>
+                                                    <th>Petugas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $i = 1;
+                                                foreach ($pemeliharaan as $data) : ?>
+                                                    <tr>
+                                                        <td><?= $i++ ?></td>
+                                                        <td><?php echo $data->tgl_pemeliharaan ?></td>
+                                                        <td><?php echo $data->petugas ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
