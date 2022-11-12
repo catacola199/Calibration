@@ -33,32 +33,32 @@
                     <ul aria-expanded="false" class="collapse first-level base-level-line">
                         <li class="sidebar-item">
                             <a href="<?= base_url('users') ?>" class="sidebar-link">
-                                <span class="hide-menu">Pengguna </span>
+                                <i class='bx bx-user'></i> <span class="hide-menu">Pengguna </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= base_url('alatKalibrasis') ?>" class="sidebar-link">
-                                <span class="hide-menu">Alat </span>
+                                <i class='bx bx-grid-alt'></i> <span class="hide-menu">Alat </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= base_url('kalibrasis') ?>" class="sidebar-link">
-                                <span class="hide-menu">Kalibrasi </span>
+                                <i class='bx bx-file'></i> <span class="hide-menu">Kalibrasi </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= base_url('qrcode') ?>" class="sidebar-link">
-                                <span class="hide-menu">QRcode </span>
+                                <i class='bx bx-qr'></i> <span class="hide-menu">QRcode </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= base_url('pemeliharaankalibrasis') ?>" class="sidebar-link">
-                                <span class="hide-menu">Pemeliharaan </span>
+                                <i class='bx bx-wrench'></i> <span class="hide-menu">Pemeliharaan </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a href="<?= base_url('scans') ?>" class="sidebar-link">
-                                <span class="hide-menu">Scan </span>
+                                <i class='bx bx-qr-scan'></i> <span class="hide-menu">Scan </span>
                             </a>
                         </li>
                     </ul>
