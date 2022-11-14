@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card text-center">
-                            <img class="mx-auto d-block mt-4" style="width: 20%;" src="<?= base_url('assets/logo_only.png') ?>" alt="...">
+                            <img class="mx-auto d-block mt-4" style="width: 20%;" src="<?= base_url('assets/siplab.png') ?>" alt="...">
 
                             <div class="card-body">
                                 <h2 class="card-title">Sri Intan Perkasa</h2>
