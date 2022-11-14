@@ -243,7 +243,7 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="<?php echo site_url('kalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</button>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
                     </div>
                     </form>
@@ -252,7 +252,7 @@
         </div>
     <?php endforeach; ?>
     <!-- Modal Edit End -->
-    
+
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();
