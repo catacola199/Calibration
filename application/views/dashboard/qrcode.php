@@ -82,9 +82,8 @@
                                                         <a href="<?php echo site_url('C_Qrcode/download_qrcode/' . $data->id_qr) ?>" class="btn btn-small btn-success" data-toggle="tooltip" data-placement="bottom" title="Download">
                                                             <i class="feather-icon" data-feather="download"></i>
                                                         </a>
-
-                                                        <a onclick="" href="#!" class="btn btn-small btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
-                                                            <i class="feather-icon" data-feather="trash"></i>
+                                                        <a onclick="deleteConfirm('<?php echo site_url('C_Qrcode/delete_Qrcode/' . $data->id_qr) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
+                                                            <i class="feather-icon" data-feather="trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

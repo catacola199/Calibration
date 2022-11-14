@@ -85,7 +85,7 @@
                                                     <td><?php echo $data->lokasi_alat ?></td>
                                                     <td><?php echo $data->tglpengadaan_alat ?></td>
                                                     <td>
-                                                        <a href="<?php echo site_url('AlatKalibrasi/edit_alatkalibrasi/' . $data->id_alat) ?>" class="btn btn-sm btn-outline-success">
+                                                        <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_alat ?>">
                                                             <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
                                                         </a>
                                                         <a onclick="deleteConfirm('<?php echo site_url('AlatKalibrasi/delete_alatkalibrasi/' . $data->id_alat) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
@@ -183,8 +183,8 @@
     </div><!-- /.modal -->
 
     <!-- Modal Edit -->
-    <?php foreach ($kalibrasi as $data) : ?>
-        <div class="modal fade" id="edit-<?= $data->id_kalibrasi ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php foreach ($alat_kalibrasi as $data) : ?>
+        <div class="modal fade" id="edit-<?= $data->id_alat ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
@@ -193,68 +193,51 @@
                     </div>
 
                     <div class="modal-body">
-                        <form action="<?php echo base_url('Kalibrasi/update_brosur') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+                        <form action="<?php echo base_url('AlatKalibrasi/update_alatkalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
 
-                            <input type="text" hidden name="id" id="id" value="<?= $data->id_kalibrasi ?>">
+                            <input type="text" hidden name="id_alat" id="id_alat" value="<?= $data->id_alat ?>">
 
-
-                            <div class="">
+                            <div class="form-group">
                                 <label for="nama_alat"><strong>Nama Alat</strong></label>
-                                <select class="form-control" name="id_alat" id="id_alat">
-
-                                    <?php foreach ($alat as $l) { ?>
-                                        <?php if ($l['id_produk'] == $data->id_produk) : ?>
-                                            <option value="<?php echo $l['id_alat']; ?>" <?= 'selected ="selected"' ?>><?php echo $l['nama_alat']; ?> </option>
-                                        <?php else : ?>
-                                            <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
-                                        <?php endif; ?>
-                                    <?php } ?>
-                                </select>
+                                <input type="text" class="form-control form-control-user" name="nama_alat" id="nama_alat" placeholder="Nama Alat" required value="<?= $data->nama_alat ?>">
                             </div>
-                            <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
+                            <div class="form-group">
+                                <label for="merk_alat"><strong>Merk Alat</strong></label>
+                                <input type="text" class="form-control form-control-user" name="merk_alat" id="merk_alat" placeholder="Merk Alat" required value="<?= $data->merk_alat ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipe_alat"><strong>Tipe Alat</strong></label>
+                                <input type="text" class="form-control form-control-user" name="tipe_alat" id="tipe_alat" placeholder="Tipe Alat" required value="<?= $data->tipe_alat ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="noseri_alat"><strong>No Seri Alat</strong></label>
+                                <input type="text" class="form-control form-control-user" name="noseri_alat" id="noseri_alat" placeholder="No Seri Alat" required value="<?= $data->noseri_alat ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="lokasi_alat"><strong>Lokasi</strong></label>
+                                <input type="text" class="form-control form-control-user" name="lokasi_alat" id="lokasi_alat" placeholder="Lokasi Alat" required value="<?= $data->lokasi_alat ?>">
+                            </div>
+
+                            <label for="lokasi_alat"><strong>Tanggal Pengadaan</strong></label>
                             <div class="input-group date" id="pengadaan_alat">
-                                <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" value="<?= $data->tgl_kalibrasi ?>" />
+                                <input type="text" class="form-control" name="tglpengadaan_alat" id="tglpengadaan_alat" value="<?= $data->tglpengadaan_alat ?>" />
                                 <span class="input-group-append">
                                     <span class="input-group-text bg-light d-block">
                                         <i class="fa fa-calendar"></i>
                                     </span>
                                 </span>
                             </div>
-
-
-
-                            <div class="form-group">
-                                <label for="lampiran"><strong>Lampiran</strong></label>
-                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf" value="<?= $data->lampiran ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="quality_pass"><strong>Quality Pass</strong></label>
-                                <select id="quality_pass" name="quality_pass" class="form-control">
-
-                                    <?php if ('Tidak Layak' == $data->quality_pass) : ?>
-                                        <option>Layak</option>
-                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
-                                    <?php elseif ('Layak' == $data->quality_pass) : ?>
-                                        <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
-                                        <option>Tidak Layak</option>
-                                    <?php else : ?>
-                                        <option>Layak</option>
-                                        <option>Tidak Layak</option>
-                                    <?php endif; ?>
-
-                                </select>
-                            </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="<?php echo site_url('Kalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
+                        <a href="<?php echo site_url('alatKalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- Modal Edit End -->
     <?php endforeach; ?>
+    <!-- Modal Edit End -->
 
     <script>
         $(function() {

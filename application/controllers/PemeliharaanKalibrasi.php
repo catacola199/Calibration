@@ -48,18 +48,15 @@ class PemeliharaanKalibrasi extends CI_Controller
 	public function update_pemeliharaan()
 	{
 		$id = array(
-			'id_alat' => $this->input->post('id_alat')
+			'id_pemeliharaan'	   	 => $this->input->post('id_pemeliharaan')
 		);
 
 		$data = array(
-			'nama_alat'	      	    => $this->input->post('nama_alat'),
-			'merk_alat'	 		    => $this->input->post('merk_alat'),
-			'tipe_alat'     		=> $this->input->post('tipe_alat'),
-			'noseri_alat'	        => $this->input->post('noseri_alat'),
-			'lokasi_alat'	 	    => $this->input->post('lokasi_alat'),
-			'tglpengadaan_alat'	    => $this->input->post('tglpengadaan_alat')
+			'id_alat' 				 => $this->input->post('id_alat'),
+			'tgl_pemeliharaan'	  	 => $this->input->post('tgl_pemeliharaan'),
+			'petugas'	   			 => $this->input->post('nama_petugas')
 		);
-		$this->M_PemeliharaanKalibrasi->updatedataalatkalibrasi($data, $id);
+		$this->M_PemeliharaanKalibrasi->updatedatapemeliharaan($data, $id);
 		$this->session->set_flashdata('notif', 'Data berhasil diupdate');
 		redirect(base_url('pemeliharaankalibrasis'));
 	}

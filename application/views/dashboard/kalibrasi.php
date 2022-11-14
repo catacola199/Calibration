@@ -195,8 +195,6 @@
                         <form action="<?php echo base_url('Kalibrasi/update_kalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
 
                             <input type="text" hidden name="id_kalibrasi" id="id_kalibrasi" value="<?= $data->id_kalibrasi ?>">
-
-
                             <div class="">
                                 <label for="nama_alat"><strong>Nama Alat</strong></label>
                                 <select class="form-control" name="id_alat" id="id_alat">
@@ -220,11 +218,11 @@
                                 </span>
                             </div>
 
-                            <input type="hidden" name="oldlampiran" id="oldlampiran" value="<?= $data->lampiran ?>"/>
+                            <input type="hidden" name="oldlampiran" id="oldlampiran" value="<?= $data->lampiran ?>" />
 
                             <div class="form-group">
                                 <label for="lampiran"><strong>Lampiran</strong></label>
-                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf" >
+                                <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf">
                             </div>
                             <div class="form-group">
                                 <label for="quality_pass"><strong>Quality Pass</strong></label>
@@ -252,9 +250,9 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Edit End -->
     <?php endforeach; ?>
-
+    <!-- Modal Edit End -->
+    
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();

@@ -21,7 +21,7 @@ class M_Qrcode extends CI_Model
 
     public function getID($id)
     {
-        return $this->db->get_where($this->_table, ['id' => $id])->row();
+        return $this->db->get_where($this->_table, ['id_qr' => $id])->row();
     }
 
     public function getAlatID($id)
@@ -32,5 +32,18 @@ class M_Qrcode extends CI_Model
     public function getAllKalbirasi()
     {
         return $this->db->get($this->_alat)->result();
+    }
+    public function delete_Qrcode($id)
+    {
+        $this->_deleteFile($id);
+        return $this->db->delete('qr_code', array("id_qr" => $id));
+    }
+    public function _deleteFile($id)
+    {
+        $file = $this->getID($id);
+        if ($file->file_qr != "default.pdf") {
+            $filename = explode(".", $file->file_qr)[0];
+            return array_map('unlink', glob(FCPATH."upload/qrcode/$filename.*"));
+        }
     }
 }

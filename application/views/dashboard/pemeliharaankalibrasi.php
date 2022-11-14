@@ -79,7 +79,7 @@
                                                     <td><?php echo $data->petugas ?></td>
 
                                                     <td>
-                                                        <a href="<?php echo site_url('PemeliharaanKalibrasi/edit_pemeliharaan/' . $data->id_pemeliharaan) ?>" class="btn btn-sm btn-outline-success">
+                                                        <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_pemeliharaan ?>">
                                                             <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
                                                         </a>
                                                         <a onclick="deleteConfirm('<?php echo site_url('PemeliharaanKalibrasi/delete_pemeliharaan/' . $data->id_pemeliharaan) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
@@ -168,6 +168,56 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+    <!-- Modal Edit -->
+    <?php foreach ($pemeliharaan as $data) : ?>
+        <div class="modal fade" id="edit-<?= $data->id_pemeliharaan ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Pemeliharaan Alat</h1>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form action="<?php echo base_url('PemeliharaanKalibrasi/update_pemeliharaan') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+                            <input type="text" hidden name="id_pemeliharaan" id="id_pemeliharaan" value="<?= $data->id_pemeliharaan ?>">
+                            <div class="">
+                                <label for="nama_alat"><strong>Nama Alat</strong></label>
+                                <select class="form-control" name="id_alat" id="id_alat">
+
+                                    <?php foreach ($alat as $l) { ?>
+                                        <?php if ($l['id_alat'] == $data->id_alat) : ?>
+                                            <option value="<?php echo $l['id_alat']; ?>" <?= 'selected ="selected"' ?>><?php echo $l['nama_alat']; ?> </option>
+                                        <?php else : ?>
+                                            <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                        <?php endif; ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <label for="lokasi_alat"><strong>Tanggal Pemeliharaan</strong></label>
+                            <div class="input-group date" id="tgl_pemeliharaan">
+                                <input type="text" class="form-control" name="tgl_pemeliharaan" id="tgl_pemeliharaan" value="<?= $data->tgl_pemeliharaan ?>" />
+                                <span class="input-group-append">
+                                    <span class="input-group-text bg-light d-block">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_petugas"><strong>Nama Petugas</strong></label>
+                                <input type="text" class="form-control form-control-user" name="nama_petugas" id="nama_petugas" placeholder="Nama Petugas" required value="<?= $data->petugas ?>">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="<?php echo site_url('pemeliharaankalibrasis') ?>" class="btn btn-danger" data-dismiss="modal"> <i class="fa fa-window-close"></i> Batal</a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <!-- Modal Edit End -->
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();

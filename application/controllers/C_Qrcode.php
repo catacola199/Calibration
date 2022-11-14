@@ -45,9 +45,9 @@ class C_Qrcode extends CI_Controller
 	{
 		if (!isset($id)) show_404();
 
-		if ($this->M_Kalibrasi->del_alatkalibrasi($id)) {
+		if ($this->M_Qrcode->delete_Qrcode($id)) {
 			$this->session->set_flashdata('notif', 'Data berhasil dihapus');
-			redirect(base_url('kalibrasis'));
+			redirect(base_url('qrcode'));
 		}
 	}
 
