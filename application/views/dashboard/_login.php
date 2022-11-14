@@ -32,13 +32,13 @@
             <div class="auth-box row">
                 <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(<?= base_url('src') ?>/assets/images/LoginPage.png);">
                     <div class="cards">
-                        <img src="<?= base_url('src') ?>/assets/images/SIPMEDic.png" class="card-img" alt="...">
+                        <img src="<?= base_url('src') ?>/assets/images/sidic1.png" class="card-img" alt="...">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-7 bg-white" style="border-radius: 2%;">
                     <div class="p-3">
                         <div class="text-center">
-                            <img src="<?= base_url('src') ?>/assets/images/sipmedic1.png" alt="wrapkit">
+                            <img src="<?= base_url('src') ?>/assets/images/sidic2.png" alt="wrapkit">
                         </div>
                         <h4 class="mt-3 text-center">
                             Welcome
