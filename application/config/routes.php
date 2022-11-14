@@ -55,16 +55,16 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['dashboard'] = 'dashboard';
-$route['users'] = 'user';
+$route['users'] = 'User';
 $route['brosurs'] = 'brosur';
 $route['produks'] = 'produk';
 $route['penawarans'] = 'penawaran';
 $route['permintaans'] = 'permintaan';
-$route['profiles'] = 'profile';
+$route['profiles'] = 'Profile';
 $route['compro'] = 'brosur/brosur';
-$route['alatKalibrasis'] = 'alatKalibrasi';
-$route['kalibrasis'] = 'kalibrasi';
-$route['pemeliharaankalibrasis'] = 'pemeliharaankalibrasi';
+$route['alatKalibrasis'] = 'AlatKalibrasi';
+$route['kalibrasis'] = 'Kalibrasi';
+$route['pemeliharaankalibrasis'] = 'PemeliharaanKalibrasi';
 $route['qrcode'] = 'C_Qrcode';
-$route['scans'] = 'scan1';
+$route['scans'] = 'Scan1';
 // $route['login'] = 'login/auth';
