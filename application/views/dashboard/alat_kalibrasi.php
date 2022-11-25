@@ -69,13 +69,16 @@
                                                 <th>No Seri</th>
                                                 <th>Lokasi</th>
                                                 <th>Tanggal Pengadaan</th>
+                                                <th>Tanggal Kalibrasi</th>
+                                                <th>lampiran</th>
+                                                <th>Quality Pass</th>
                                                 <th>Action</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $i = 1;
-                                            foreach ($alat_kalibrasi as $data) : ?>
+                                            foreach ($alat as $data) : ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>
                                                     <td><?php echo $data->nama_alat ?></td>
@@ -84,6 +87,14 @@
                                                     <td><?php echo $data->noseri_alat ?></td>
                                                     <td><?php echo $data->lokasi_alat ?></td>
                                                     <td><?php echo $data->tglpengadaan_alat ?></td>
+                                                    <td><?php if (null == $data->tanggal) : ?>
+                                                           
+                                                        <?php else : ?>
+                                                            <?php $date = date_create($data->tanggal); echo date_format($date, "d/m/Y"); ?>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td><?php echo $data->lampiran ?></td>
+                                                    <td><?php echo $data->quality_pass ?></td>
                                                     <td>
                                                         <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_alat ?>">
                                                             <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>

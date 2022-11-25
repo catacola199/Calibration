@@ -9,6 +9,14 @@ class M_AlatKalibrasi extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
+    public function getAllAlat()
+    {
+        $sql = "SELECT alat_kalibrasi.id_alat,alat_kalibrasi.nama_alat,alat_kalibrasi.merk_alat, alat_kalibrasi.tipe_alat,alat_kalibrasi.noseri_alat,alat_kalibrasi.lokasi_alat,alat_kalibrasi.tglpengadaan_alat, 
+        max(str_to_date(t_kalibrasi.tgl_kalibrasi,'%d/%m/%Y')) as tanggal,t_kalibrasi.quality_pass, t_kalibrasi.lampiran 
+        from alat_kalibrasi left join t_kalibrasi on alat_kalibrasi.id_alat = t_kalibrasi.id_alat GROUP by alat_kalibrasi.nama_alat ;";
+        return $this->db->query($sql)->result();
+    }
+
     public function simpandatakalbirasi($data)
     {
         $this->db->insert('alat_kalibrasi', $data);

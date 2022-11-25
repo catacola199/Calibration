@@ -17,6 +17,7 @@ class AlatKalibrasi extends CI_Controller
 	{
 		$data["role"] = $this->All_model->getAllRole();
 		$data["alat_kalibrasi"] = $this->M_AlatKalibrasi->getAllKalbirasi();
+		$data["alat"] = $this->M_AlatKalibrasi->getAllAlat();
 		$this->load->view("dashboard/alat_kalibrasi", $data);
 	}
 
