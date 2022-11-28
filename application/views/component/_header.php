@@ -41,6 +41,7 @@
                 <!-- ============================================================== -->
                 <!-- Search -->
                 <!-- ============================================================== -->
+
                 <li class="nav-item d-none d-md-block" id="fullscreen">
                     <a class="nav-link" href="javascript:void(0)" onclick="document.documentElement.requestFullscreen()">
                         <span><i data-feather="maximize" class="feather-icon"></i></span>
@@ -54,14 +55,48 @@
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
+                <?php
+                $query = $this->db->query("SELECT alat_kalibrasi.nama_alat,t_kalibrasi.tgl_kalibrasi from alat_kalibrasi left join t_kalibrasi on alat_kalibrasi.id_alat = t_kalibrasi.id_alat where 
+                month(DATE_SUB(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'), INTERVAL 1 MONTH)) = month(CURRENT_DATE()) and 
+                year(DATE_SUB(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'), INTERVAL 1 MONTH)) = year(CURRENT_DATE())"); //month(CURRENT_DATE())
+                // $rw = $query->result()->num_row();
+                ?>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell fa-fw text-light"></i>
+                        <span class="badge badge-danger"><?= $query->num_rows(); ?></span>
+                    </a>
+                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in " aria-labelledby="messagesDropdown" style="width: 400px;">
+                        <h6 class="dropdown-header">
+                            Notification Center
+                        </h6>
+
+                        <?php foreach ($query->result() as $row) : ?>
+                            <a class="dropdown-item  align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                </div>
+                                <div>
+                                    <div class="text-truncate"><?= $row->nama_alat ?></div>
+                                    <div class="small text-gray-500">Date Exp· <?= $row->tgl_kalibrasi ?></div>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                        <a class="dropdown-item text-center small text-gray-500" href="#">Read More Notification</a>
+                    </div>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="<?php if(file_exists(FCPATH.'upload/pengguna/'.$this->fungsi->user_login()->foto_pengguna) != 1){echo base_url('upload/pengguna/default.png');}else{ echo base_url('upload/pengguna/').$this->fungsi->user_login()->foto_pengguna;} ?>" alt="user" class="rounded-circle pp" alt="Foto" width="45" height="45">
+                        <img src="<?php if (file_exists(FCPATH . 'upload/pengguna/' . $this->fungsi->user_login()->foto_pengguna) != 1) {
+                                        echo base_url('upload/pengguna/default.png');
+                                    } else {
+                                        echo base_url('upload/pengguna/') . $this->fungsi->user_login()->foto_pengguna;
+                                    } ?>" alt="user" class="rounded-circle pp" alt="Foto" width="45" height="45">
                         <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark"><?= $this->fungsi->user_login()->nama_pengguna ?></span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                        <a class="dropdown-item" href="<?= base_url('profiles')?>"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
-                            My Profile</a> 
+                        <a class="dropdown-item" href="<?= base_url('profiles') ?>"><i data-feather="user" class="svg-icon mr-2 ml-1"></i>
+                            My Profile</a>
                         <hr class="dropdown-divider">
                         <a class="dropdown-item" href="<?= base_url('login/logout') ?>"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
                             Logout</a>
