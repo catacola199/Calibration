@@ -56,15 +56,22 @@
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
                 <?php
-                $query = $this->db->query("SELECT alat_kalibrasi.nama_alat,t_kalibrasi.tgl_kalibrasi from alat_kalibrasi left join t_kalibrasi on alat_kalibrasi.id_alat = t_kalibrasi.id_alat where 
-                month(DATE_SUB(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'), INTERVAL 1 MONTH)) = month(CURRENT_DATE()) and 
-                year(DATE_SUB(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'), INTERVAL 1 MONTH)) = year(CURRENT_DATE())"); //month(CURRENT_DATE())
+                $query = $this->db->query("SELECT alat_kalibrasi.nama_alat,t_kalibrasi.tgl_kalibrasi FROM alat_kalibrasi LEFT JOIN t_kalibrasi ON alat_kalibrasi.id_alat = t_kalibrasi.id_alat WHERE 
+                MONTH(DATE_SUB(DATE_ADD(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'),INTERVAL 1 YEAR), INTERVAL 1 MONTH)) = MONTH(CURRENT_DATE()) AND 
+                YEAR(DATE_SUB(DATE_ADD(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'),INTERVAL 1 YEAR), INTERVAL 1 MONTH)) = YEAR(CURRENT_DATE())"); //month(CURRENT_DATE())
                 // $rw = $query->result()->num_row();
                 ?>
                 <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell fa-fw text-light"></i>
-                        <span class="badge badge-danger"><?= $query->num_rows(); ?></span>
+                    <a class="nav-link dropdown-toggle position-relative" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- <button type="button" class="btn position-relative"> -->
+                        <i data-feather="bell" class="feather-icon"></i>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:25px; right:-20px">
+                            <?= $query->num_rows(); ?>
+                        <span class="visually-hidden">unread messages</span>
+                        </span>
+                    <!-- </button>     -->
+                    <!-- <i class="fas fa-bell fa-fw text-light"></i>
+                        <span class="badge badge-danger"><?= $query->num_rows(); ?></span> -->
                     </a>
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in " aria-labelledby="messagesDropdown" style="width: 400px;">
                         <h6 class="dropdown-header">
@@ -72,16 +79,19 @@
                         </h6>
 
                         <?php foreach ($query->result() as $row) : ?>
-                            <a class="dropdown-item  align-items-center" href="#">
-                                <div class="dropdown-list-image mr-3">
-                                </div>
-                                <div>
-                                    <div class="text-truncate"><?= $row->nama_alat ?></div>
-                                    <div class="small text-gray-500">Date Exp· <?= $row->tgl_kalibrasi ?></div>
+                            <a class="dropdown-item align-items-center" href="#">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="<?= base_url("assets/sidic2.png")?>" alt=".." class="img-fluid">
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-truncate"><?= $row->nama_alat ?></div>
+                                        <div class="small text-black-50">Kalibrasi kembali pada tanggal <?= $row->tgl_kalibrasi ?></div>
+                                    </div>
                                 </div>
                             </a>
                         <?php endforeach; ?>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Read More Notification</a>
+                        <a class="dropdown-item text-center small text-black-50" href="#">Read More Notification</a>
                     </div>
                 </li>
 
