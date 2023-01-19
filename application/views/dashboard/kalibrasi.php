@@ -166,8 +166,8 @@
                             <label for="quality_pass"><strong>Quality Pass</strong></label>
                             <select id="quality_pass" name="quality_pass" class="form-control">
                                 <option selected>Choose...</option>
-                                <option>Layak</option>
-                                <option>Tidak Layak</option>
+                                <option>Laik</option>
+                                <option>Tidak Laik</option>
                             </select>
                         </div>
                         <!-- End Form -->
@@ -228,15 +228,15 @@
                                 <label for="quality_pass"><strong>Quality Pass</strong></label>
                                 <select id="quality_pass" name="quality_pass" class="form-control">
 
-                                    <?php if ('Tidak Layak' == $data->quality_pass) : ?>
-                                        <option>Layak</option>
+                                    <?php if ('Tidak Laik' == $data->quality_pass) : ?>
+                                        <option>Tidak Laik</option>
                                         <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
-                                    <?php elseif ('Layak' == $data->quality_pass) : ?>
+                                    <?php elseif ('Laik' == $data->quality_pass) : ?>
                                         <option value="<?= $data->quality_pass ?>" <?= 'selected ="selected"' ?>><?= $data->quality_pass ?> </option>
-                                        <option>Tidak Layak</option>
+                                        <option>Laik</option>
                                     <?php else : ?>
-                                        <option>Layak</option>
-                                        <option>Tidak Layak</option>
+                                        <option>Laik</option>
+                                        <option>Tidak Laik</option>
                                     <?php endif; ?>
 
                                 </select>
