@@ -20,8 +20,13 @@
 <script src="<?= base_url('src') ?>/assets/extra-libs/c3/d3.min.js"></script>
 <script src="<?= base_url('src') ?>/assets/extra-libs/c3/c3.min.js"></script>
 <script src="<?= base_url('src') ?>/assets/extra-libs/sparkline/sparkline.js"></script>
-<script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/b-2.2.3/b-html5-2.2.3/datatables.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/datatables.min.js"></script>
+
+<!-- <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/b-2.2.3/b-html5-2.2.3/datatables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
@@ -34,7 +39,7 @@
 <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
 
 
 
@@ -86,21 +91,143 @@
     });
 
     $(document).ready(function() {
+        $('#multi_col_order').DataTable();
+
         var table = $('#alat_kali').DataTable({
-            dom: 'Bfrtip',
+            dom:"<'row'<'col-sm-4 col-md-4'l><'col-sm-4 col-md-4 float-left'B><'col-sm-4 col-md-4'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
             buttons: [
-                'csv', 'excel', 'print'
+                {
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
             ]
         });
-        table.buttons().container()
-            .appendTo('#example_wrapper .col-md-6:eq(0)');
 
-
-        $('#pemeliharaan').DataTable();
         var table = $('#kalibrasi').DataTable({
-            dom: 'Bfrtip',
+            dom:"<'row'<'col-sm-4 col-md-4'l><'col-sm-4 col-md-4 float-left'B><'col-sm-4 col-md-4'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
             buttons: [
-                'csv', 'excel', 'print'
+                {
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Kalibrasi'
+                },
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Kalibrasi'
+                },
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Kalibrasi'
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Kalibrasi'
+                },
+                {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Kalibrasi'
+                },
+            ]
+        });
+
+        var table = $('#pemeliharaan').DataTable({
+            dom:"<'row'<'col-sm-4 col-md-4'l><'col-sm-4 col-md-4 float-left'B><'col-sm-4 col-md-4'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            buttons: [
+                {
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Pemeliharaan'
+                },
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Pemeliharaan'
+                },
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Pemeliharaan'
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Pemeliharaan'
+                },
+                {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4] 
+                    },
+                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Report Pemeliharaan'
+                },
             ]
         });
 
