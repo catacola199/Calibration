@@ -89,7 +89,7 @@
         var table = $('#alat_kali').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                'csv', 'excel', 'print'
             ]
         });
         table.buttons().container()
@@ -97,7 +97,12 @@
 
 
         $('#pemeliharaan').DataTable();
-        $('#kalibrasi').DataTable();
+        var table = $('#kalibrasi').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'excel', 'print'
+            ]
+        });
 
     });
 
