@@ -128,14 +128,6 @@
                     filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
                     title: 'Daftar Alat'
                 },
-                {
-                    extend: 'pdf',
-                    exportOptions: {
-                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
-                    },
-                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
-                    title: 'Daftar Alat'
-                },
             ]
         });
 
@@ -174,14 +166,6 @@
                     filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
                     title: 'Report Kalibrasi'
                 },
-                {
-                    extend: 'pdf',
-                    exportOptions: {
-                        columns: [ 0,1,2,3,4] 
-                    },
-                    filename: 'Report Kalibrasi<?= date('d')."_".date('F')."_".date('Y')?>', 
-                    title: 'Report Kalibrasi'
-                },
             ]
         });
 
@@ -214,14 +198,6 @@
                 },
                 {
                     extend: 'print',
-                    exportOptions: {
-                        columns: [ 0,1,2,3,4] 
-                    },
-                    filename: 'Report Pemeliharaan<?= date('d')."_".date('F')."_".date('Y')?>', 
-                    title: 'Report Pemeliharaan'
-                },
-                {
-                    extend: 'pdf',
                     exportOptions: {
                         columns: [ 0,1,2,3,4] 
                     },
