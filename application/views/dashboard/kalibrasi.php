@@ -136,16 +136,26 @@
                 <div class="modal-body">
                     <!-- Form -->
                     <form action="<?php echo base_url('Kalibrasi/save_kalibrasi') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
-
+                        <div class="form-group">
+                            <label for="nama_alat"><strong>Lokasi Alat</strong></label>
+                            <select class="form-control" name="id_alat" id="id_alat">
+                                <option selected disabled value="">Choose...</option>
+                                <?php foreach ($lokasi as $l) { ?>
+                                    <option value="lokasi"><?php echo $l['lokasi_alat']; ?> </option>
+                                <?php } ?>
+                            </select>
+                        </div>    
+                    
                         <div class="form-group">
                             <label for="nama_alat"><strong>Nama Alat</strong></label>
                             <select class="form-control" name="id_alat" id="id_alat">
                                 <option selected disabled value="">Choose...</option>
                                 <?php foreach ($alat as $l) { ?>
-                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat']. " - " . $l['lokasi_alat']; ?> </option>
                                 <?php } ?>
                             </select>
                         </div>
+                       
                         <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
                         <div class="input-group date" id="pengadaan_alat">
                             <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" />
@@ -155,8 +165,6 @@
                                 </span>
                             </span>
                         </div>
-
-
 
                         <div class="form-group">
                             <label for="lampiran"><strong>Lampiran</strong></label>

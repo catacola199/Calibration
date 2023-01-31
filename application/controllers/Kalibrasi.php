@@ -18,6 +18,8 @@ class Kalibrasi extends CI_Controller
 		$data["role"] = $this->All_model->getAllRole();
 		$data["kalibrasi"] = $this->M_Kalibrasi->getAllKalbirasi();
 		$data["alat"] = $this->M_Kalibrasi->get_alat();
+		$data["lokasi"] = $this->M_Kalibrasi->get_lokasi();
+		
 		$this->load->view("dashboard/kalibrasi", $data);
 	}
 
