@@ -69,6 +69,7 @@ class M_Kalibrasi extends CI_Model
         $query = $this->db->get('alat_kalibrasi');
         return $query->result_array();
     }
+    
     public function get_lokasi()
     {
         $this->db->distinct();

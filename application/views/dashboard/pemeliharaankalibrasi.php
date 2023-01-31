@@ -139,7 +139,7 @@
                             <select class="form-control" name="id_alat" id="id_alat">
                                 <option selected>Choose...</option>
                                 <?php foreach ($alat as $l) { ?>
-                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat']. " - " . $l['lokasi_alat']; ?> </option>
                                 <?php } ?>
                             </select>
                         </div>
