@@ -84,4 +84,10 @@ class Kalibrasi extends CI_Controller
 			redirect(base_url('kalibrasis'));
 		}
 	}
+
+	function nama_alat(){
+		$lokasi = $this->input->post('id',TRUE);
+		$data = $this->M_Kalibrasi->nama_alat($lokasi)->result();
+		echo json_encode($data);
+	}
 }
