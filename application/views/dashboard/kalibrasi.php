@@ -64,9 +64,11 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nama Alat</th>
+                                                <th>No Seri</th>
+                                                <th>Lokasi</th>
                                                 <th>Tanggal Kalibrasi</th>
-                                                <th>Lampiran</th>
                                                 <th>Quality Pass</th>
+                                                <th>Lampiran</th>
 
                                                 <th>Action</th>
 
@@ -78,9 +80,12 @@
                                                 <tr>
                                                     <td><?= $i++ ?></td>
                                                     <td><?php echo $data->nama_alat ?></td>
+                                                    <td><?php echo $data->noseri_alat ?></td>
+                                                    <td><?php echo $data->lokasi_alat ?></td>
                                                     <td><?php echo $data->tgl_kalibrasi ?></td>
-                                                    <td><a href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> <?php echo $data->lampiran ?> </a></td>
                                                     <td><?php echo $data->quality_pass ?></td>
+                                                    <td><a class="btn btn-sm btn-outline-primary" href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> Download Lampiran </a></td>
+                                                    
                                                     <td>
                                                         <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_kalibrasi ?>">
                                                             <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>

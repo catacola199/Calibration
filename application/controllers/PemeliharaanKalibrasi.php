@@ -20,6 +20,7 @@ class PemeliharaanKalibrasi extends CI_Controller
 		$data["role"] = $this->All_model->getAllRole();
 		$data["pemeliharaan"] = $this->M_PemeliharaanKalibrasi->getAllPemeliharaan();
 		$data["alat"] = $this->M_Kalibrasi->get_alat();
+		$data["lokasi"] = $this->M_Kalibrasi->get_lokasi();
 		$this->load->view("dashboard/pemeliharaankalibrasi", $data);
 	}
 
@@ -70,5 +71,11 @@ class PemeliharaanKalibrasi extends CI_Controller
 			$this->session->set_flashdata('notif', 'Data berhasil dihapus');
 			redirect(base_url('pemeliharaankalibrasis'));
 		}
+	}
+	
+	function nama_alat(){
+		$lokasi = $this->input->post('id',TRUE);
+		$data = $this->M_Kalibrasi->nama_alat($lokasi)->result();
+		echo json_encode($data);
 	}
 }

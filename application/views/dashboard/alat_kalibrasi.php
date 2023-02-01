@@ -93,7 +93,13 @@
                                                             <?php $date = date_create($data->tanggal); echo date_format($date, "d/m/Y"); ?>
                                                         <?php endif; ?>
                                                     </td>
-                                                    <td><?php echo $data->lampiran ?></td>
+                                                    <td>
+                                                    <?php if (null == $data->lampiran) : ?>
+                                                           
+                                                           <?php else : ?>
+                                                            <a class="btn btn-sm btn-outline-primary" href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> Download Lampiran </a>
+                                                           <?php endif; ?>
+                                                    </td>
                                                     <td><?php echo $data->quality_pass ?></td>
                                                     <td>
                                                         <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_alat ?>">
