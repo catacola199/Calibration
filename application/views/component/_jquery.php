@@ -93,6 +93,44 @@
     $(document).ready(function() {
         $('#multi_col_order').DataTable();
 
+        var table = $('#perbaikan').DataTable({
+            dom:"<'row'<'col-sm-4 col-md-4'l><'col-sm-4 col-md-4 float-left'B><'col-sm-4 col-md-4'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            buttons: [
+                {
+                    extend: 'copy',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [ 0,1,2,3,4,5,6,7,8,9] 
+                    },
+                    filename: 'Daftar Alat<?= date('d')."_".date('F')."_".date('Y')?>', 
+                    title: 'Daftar Alat'
+                },
+            ]
+        });
+
         var table = $('#alat_kali').DataTable({
             dom:"<'row'<'col-sm-4 col-md-4'l><'col-sm-4 col-md-4 float-left'B><'col-sm-4 col-md-4'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
             buttons: [

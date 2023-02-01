@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <!-- ============================================================== -->
+                <!-- ==============================================================  -->
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -60,7 +60,7 @@
                             <div class="card-body mini-profile">
                                 <center class=""> <img src="<?php if(file_exists(FCPATH.'upload/pengguna/'.$this->fungsi->user_login()->foto_pengguna) != 1){echo base_url('upload/pengguna/default.png');}else{ echo base_url('upload/pengguna/').$this->fungsi->user_login()->foto_pengguna;} ?>" class="rounded-circle pp foto-profile" alt="..." width="150" height="150" />
                                     <h4 class="card-title mt-4"><?= ucfirst($this->fungsi->user_login()->nama_pengguna)?></h4>
-                                    <h6 class="card-subtitle"><?= ucfirst($this->fungsi->user_login()->instansi_pengguna)?></h6>
+                                    <!-- <h6 class="card-subtitle"> </h6> -->
                                 </center>
                                 <hr class="dropdown-divider mt-1 mb-1">
                                 <small class="text-muted">Alamat Email</small>
@@ -94,12 +94,7 @@
                                                 <label for="nama_pengguna">Nama Pengguna</label>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control form-control-user" name="instansi_pengguna" id="instansi_pengguna" placeholder="Instansi Pengguna" value="<?= $this->fungsi->user_login()->instansi_pengguna ?>" required>
-                                                <label for="instansi_pengguna">Instansi Pengguna</label>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <div class="form-floating">
                                                 <input type="email" class="form-control form-control-user" name="email_pengguna" id="email_pengguna" placeholder="Email Pengguna" value="<?= $this->fungsi->user_login()->email_pengguna ?>" required>

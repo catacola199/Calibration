@@ -66,7 +66,7 @@
                                                 <th>#</th>
                                                 <th>Profile</th>
                                                 <th>Nama Lengkap</th>
-                                                <th>Instansi</th>
+                                               
                                                 <th>Email</th>
                                                 <th>Terverifikasi</th>
                                                 <th>Action</th>
@@ -80,7 +80,7 @@
                                                     <td><?= $i++ ?></td>
                                                     <td><img src="<?php if(file_exists(FCPATH.'upload/pengguna/'.$data->foto_pengguna) != 1){echo base_url('upload/pengguna/default.png');}else{ echo base_url('upload/pengguna/').$data->foto_pengguna;} ?>" class="rounded-circle pp" alt="Foto" width="55" height="55" /></td>
                                                     <td><?php echo ucfirst($data->nama_pengguna) ?></td>
-                                                    <td><?php echo ucfirst($data->instansi_pengguna) ?></td>
+                                                   
                                                     <td><?php echo $data->email_pengguna ?></td>
                                                     <td><?php if ($data->terverifikasi == 0) {
                                                             echo "Tidak";
@@ -167,12 +167,7 @@
                                 <label for="nama_pengguna">Nama Pengguna</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-floating">
-                                <input type="text" class="form-control form-control-user" name="instansi_pengguna" id="instansi_pengguna" placeholder="Instansi Pengguna" required>
-                                <label for="instansi_pengguna">Instansi Pengguna</label>
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <div class="form-floating">
                                 <input type="email" class="form-control form-control-user" name="email_pengguna" id="email_pengguna" placeholder="Email Pengguna" required>
@@ -244,12 +239,7 @@
                                     <label for="nama_pengguna">Nama Pengguna</label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control form-control-user" name="instansi_pengguna" id="instansi_pengguna" placeholder="Instansi Pengguna" value="<?= $data->instansi_pengguna ?>" required>
-                                    <label for="instansi_pengguna">Instansi Pengguna</label>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <div class="form-floating">
                                     <input type="email" class="form-control form-control-user" name="email_pengguna" id="email_pengguna" placeholder="Email Pengguna" value="<?= $data->email_pengguna ?>" required>

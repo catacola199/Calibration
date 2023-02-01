@@ -35,7 +35,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a>
-                                        <i class="fas fa-angle-double-right"></i> Master Kalibrasi
+                                        <i class="fas fa-angle-double-right"></i> Master Perbaikan
                                     </li>
                                 </ol>
                             </nav>
@@ -50,7 +50,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Daftar Kalibrasi</h4>
+                                <h4 class="card-title">Daftar Perbaikan Kepala Ruangan</h4>
                                 <hr>
                                 <h6 class="card-subtitle">
                                     <div class="btn-list">
@@ -59,38 +59,45 @@
                                     </div>
                                 </h6>
                                 <div class="table-responsive">
-                                    <table id="kalibrasi" class="table table-striped table-bordered display no-wrap" style="width:100%">
+                                    <table id="perbaikan" class="table table-striped table-bordered display no-wrap" style="width:100%">
                                         <thead class="bg-primary text-white">
                                             <tr>
                                                 <th>#</th>
+                                                <th>No Permohonan</th>
                                                 <th>Nama Alat</th>
                                                 <th>No Seri</th>
+                                                <th>Tanggal Permohonan</th>
                                                 <th>Lokasi</th>
-                                                <th>Tanggal Kalibrasi</th>
-                                                <th>Quality Pass</th>
-                                                <th>Lampiran</th>
-
+                                                <th>Keterangan</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $i = 1;
-                                            foreach ($kalibrasi as $data) : ?>
+                                            foreach ($perbaikan as $data) : ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>
+                                                    <td><?php echo $data->no_permohonan ?></td>
                                                     <td><?php echo $data->nama_alat ?></td>
                                                     <td><?php echo $data->noseri_alat ?></td>
-                                                    <td><?php echo $data->lokasi_alat ?></td>
-                                                    <td><?php echo $data->tgl_kalibrasi ?></td>
-                                                    <td><?php echo $data->quality_pass ?></td>
-                                                    <td><a class="btn btn-sm btn-outline-primary" href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> Download Lampiran </a></td>
+                                                    <td><?php echo $data->tgl_permohonan ?></td>
+                                                    <td><?php echo $data->pemohon ?></td>
+                                                    <td><?php echo $data->keterangan ?></td>
+                                                    <td>
+                                                        <?php if ($data->status == 'BARU') : ?>
+                                                            <p class=" spstatus bg-info text-white"><?php echo $data->status ?></p>
+                                                        <?php elseif ($data->status == 'PROSES') : ?>
+                                                            <p class=" spstatus bg-warning text-white"><?php echo $data->status ?></p>
+                                                        <?php else : ?>
+                                                            <p class=" spstatus bg-success text-white"><?php echo $data->status ?></p>
+                                                        <?php endif; ?>
+                                                    </td>
                                                     
                                                     <td>
-                                                        <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_kalibrasi ?>">
-                                                            <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
-                                                        </a>
-                                                        <a onclick="deleteConfirm('<?php echo site_url('Kalibrasi/delete_kalibrasi/' . $data->id_kalibrasi) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
+                                                        
+                                                        <a onclick="deleteConfirm('<?php echo site_url('Perbaikan/delete_perbaikan/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
                                                             <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
                                                         </a>
                                                     </td>
@@ -129,18 +136,28 @@
     <?php $this->load->view('component/_jquery') ?>
     <!-- End JQuery -->
 
-    <!-- Form Tambah Kalibrasi -->
+    <!-- Form Tambah Perbaikan -->
     <div id="success-header-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="success-header-modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header modal-colored-header bg-primary">
-                    <h4 class="modal-title" id="success-header-modalLabel">Form Tambah Kalibrasi
+                    <h4 class="modal-title" id="success-header-modalLabel">Form Tambah Perbaikan
                     </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     <!-- Form -->
-                    <form action="<?php echo base_url('Kalibrasi/save_kalibrasi') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
+                    <form action="<?php echo base_url('Perbaikan/save_perbaikan') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
+                        <div class="form-group">
+                            <div class="form-floating">
+                                <input type="hidden" name="no_permohonan" id="no_permohonan" 
+                                value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);echo $no_permohonan; ?>">
+                                <input type="text" class="form-control" id="kode" placeholder="No Permohonan" 
+                                value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);
+                                    echo $no_permohonan; ?>" disabled>
+                                <label for="no_permohonan">No Permohonan</label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="nama_alat"><strong>Lokasi Alat</strong></label>
                             <select class="form-control" name="lokasi_alat" id="lokasi_alat">
@@ -161,27 +178,9 @@
                             </select>
                         </div>
                        
-                        <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
-                        <div class="input-group date" id="pengadaan_alat">
-                            <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" />
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-light d-block">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </span>
-                        </div>
-
                         <div class="form-group">
-                            <label for="lampiran"><strong>Lampiran</strong></label>
-                            <input type="file" class="form-control form-control-file" name="lampiran" id="lampiran" accept=".pdf">
-                        </div>
-                        <div class="form-group">
-                            <label for="quality_pass"><strong>Quality Pass</strong></label>
-                            <select id="quality_pass" name="quality_pass" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>Laik</option>
-                                <option>Tidak Laik</option>
-                            </select>
+                            <label for="noseri_alat"><strong>Keterangan</strong></label>
+                            <input type="text" class="form-control form-control-user" name="keterangan" id="keterangan" placeholder="keterangan" required>
                         </div>
                         <!-- End Form -->
 
@@ -193,22 +192,22 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div><!-- / Tambah Kalibrasi -->
+    </div><!-- / Tambah Perbaikan -->
 
     <!-- Modal Edit -->
-    <?php foreach ($kalibrasi as $data) : ?>
-        <div class="modal fade" id="edit-<?= $data->id_kalibrasi ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php foreach ($perbaikan as $data) : ?>
+        <div class="modal fade" id="edit-<?= $data->id_permohonan ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-primary text-white">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Kalibrasi</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Perbaikan</h1>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
-                        <form action="<?php echo base_url('Kalibrasi/update_kalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+                        <form action="<?php echo base_url('Perbaikan/update_kalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
 
-                            <input type="text" hidden name="id_kalibrasi" id="id_kalibrasi" value="<?= $data->id_kalibrasi ?>">
+                            <input type="text" hidden name="id_permohonan" id="id_permohonan" value="<?= $data->id_permohonan ?>">
                             <div class="form-group">
                                 <label for="nama_alat"><strong>Lokasi Alat</strong></label>
                                 <select class="form-control" name="lokasi_alat" id="lokasi_alat">
@@ -241,7 +240,7 @@
                                     <?php } ?>
                                 </select>
                             </div>
-                            <label for="lokasi_alat"><strong>Tanggal Kalibrasi</strong></label>
+                            <label for="lokasi_alat"><strong>Tanggal Permohonan</strong></label>
                             <div class="input-group date" id="pengadaan_alat">
                                 <input type="text" class="form-control" name="tgl_kalibrasi" id="tgl_kalibrasi" value="<?= $data->tgl_kalibrasi ?>" />
                                 <span class="input-group-append">
@@ -296,7 +295,7 @@
                 var id=$(this).val();
                 console.log(id);
                 $.ajax({
-                    url : "<?php echo site_url('kalibrasi/nama_alat');?>",
+                    url : "<?php echo site_url('perbaikan/nama_alat');?>",
                     method : "POST",
                     data : {id: id},
                     async : true,
