@@ -85,21 +85,43 @@
                                                     <td><?php echo $data->tgl_permohonan ?></td>
                                                     <td><?php echo $data->pemohon ?></td>
                                                     <td><?php echo $data->keterangan ?></td>
-                                                    <td>
+                                                    <td class="text-center">
                                                         <?php if ($data->status == 'BARU') : ?>
-                                                            <p class=" spstatus bg-info text-white"><?php echo $data->status ?></p>
+                                                            <span class="badge bg-info text-white"><?php echo $data->status ?></sp>
                                                         <?php elseif ($data->status == 'PROSES') : ?>
-                                                            <p class=" spstatus bg-warning text-white"><?php echo $data->status ?></p>
+                                                            <p class=" badge bg-warning text-white"><?php echo $data->status ?></p>
                                                         <?php else : ?>
-                                                            <p class=" spstatus bg-success text-white"><?php echo $data->status ?></p>
+                                                            <p class=" badge bg-success text-white"><?php echo $data->status ?></p>
                                                         <?php endif; ?>
                                                     </td>
-                                                    
                                                     <td>
-                                                        
-                                                        <a onclick="deleteConfirm('<?php echo site_url('Perbaikan/delete_perbaikan/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
-                                                            <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
-                                                        </a>
+                                                        <?php if($data->status != 'BARU'):?>
+                                                            <?php if ($data->status == "PROSES"):?>
+                                                                <a onclick="prosesConfirm('<?php echo site_url('Perbaikan/selesai/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-primary">
+                                                                    <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Selesai diproses"></i>
+                                                                </a>
+                                                            <?php else:?>
+                                                                <a href="" class="btn btn-sm btn-outline-secondary disabled">
+                                                                    <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Verifikasi"></i>
+                                                                </a>
+                                                            <?php endif;?>
+                                                            <a href="#!" class="btn btn-sm btn-outline-secondary disabled">
+                                                                <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
+                                                            </a>
+                                                            <a href="#!" class="btn btn-sm btn-outline-secondary disabled">
+                                                                <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
+                                                            </a>
+                                                        <?php else:?>
+                                                            <a onclick="prosesConfirm('<?php echo site_url('Perbaikan/proses/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-primary">
+                                                                <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Verifikasi"></i>
+                                                            </a>
+                                                            <a href="#!" class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#edit-<?= $data->id_permohonan ?>">
+                                                                <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
+                                                            </a>
+                                                            <a onclick="deleteConfirm('<?php echo site_url('Perbaikan/delete_perbaikan/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
+                                                                <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
+                                                            </a>
+                                                        <?php endif;?>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

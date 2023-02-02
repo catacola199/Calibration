@@ -18,7 +18,7 @@
                     </li>
                    
                     <li class="sidebar-item">
-                        <a href="<?= base_url('user_kr') ?>" class="sidebar-link">
+                        <a href="<?= base_url('suster') ?>" class="sidebar-link">
                             <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
                         </a>
                     </li>
@@ -100,13 +100,13 @@
                         <span class="hide-menu">Admin</span>
                     </li>
 
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                         <a class="sidebar-link has-arrow btn btn-outline-light" href="javascript:void(0)" aria-expanded="false" style="border:0; border-radius: 0 50px 50px 0;"><i data-feather="archive" class="feather-icon"></i>
                             <span class="hide-menu">Master Data</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level base-level-line">
                             <li class="sidebar-item">
-                                <a href="<?= base_url('user_kr') ?>" class="sidebar-link">
+                                <a href="<?= base_url('kepalaruangan') ?>" class="sidebar-link">
                                     <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
                                 </a>
                             </li>
@@ -121,6 +121,21 @@
                                 </a>
                             </li>
                         </ul>
+                    </li> -->
+                    <li class="sidebar-item">
+                        <a href="<?= base_url('kepalaruangan') ?>" class="sidebar-link">
+                            <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="<?= base_url('qrcode') ?>" class="sidebar-link">
+                            <i class='bx bx-qr'></i> <span class="hide-menu">QRcode </span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="<?= base_url('scans') ?>" class="sidebar-link">
+                            <i class='bx bx-qr-scan'></i> <span class="hide-menu">Scan </span>
+                        </a>
                     </li>
                 <?php } ?>
             </ul>

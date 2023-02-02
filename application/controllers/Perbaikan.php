@@ -39,6 +39,34 @@ class Perbaikan extends CI_Controller
 		$this->load->view("dashboard/perbaikan_suster", $data);
 	}
 
+	public function proses($id = null)
+	{
+		$idp = array(
+			'id_permohonan' => $id
+		);
+		$no_permohonan = $this->db->get_where('permohonan_perbaikan', ["id_permohonan" => $id])->row()->no_permohonan;
+		$data = array(
+			'status' => 'PROSES'
+		);
+		$this->M_Perbaikan->updatedataperbaikan($data, $idp);
+		$this->session->set_flashdata('notif', 'Permohonan dengan nomor ' .$no_permohonan. ' segera diproses');
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+	public function selesai($id = null)
+	{
+		$idp = array(
+			'id_permohonan' => $id
+		);
+		$no_permohonan = $this->db->get_where('permohonan_perbaikan', ["id_permohonan" => $id])->row()->no_permohonan;
+		$data = array(
+			'status' => 'SELESAI'
+		);
+		$this->M_Perbaikan->updatedataperbaikan($data, $idp);
+		$this->session->set_flashdata('notif', 'Permohonan dengan nomor ' .$no_permohonan. ' selesai diproses');
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
 
 	// Get Save User
 	public function save_perbaikan()
