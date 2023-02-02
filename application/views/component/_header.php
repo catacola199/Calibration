@@ -57,8 +57,7 @@
                 <!-- ============================================================== -->
                 <?php
                 $query = $this->db->query("SELECT alat_kalibrasi.nama_alat,t_kalibrasi.tgl_kalibrasi FROM alat_kalibrasi LEFT JOIN t_kalibrasi ON alat_kalibrasi.id_alat = t_kalibrasi.id_alat WHERE 
-                MONTH(DATE_SUB(DATE_ADD(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'),INTERVAL 1 YEAR), INTERVAL 1 MONTH)) = MONTH(CURRENT_DATE()) AND 
-                YEAR(DATE_SUB(DATE_ADD(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'),INTERVAL 1 YEAR), INTERVAL 1 MONTH)) = YEAR(CURRENT_DATE())"); //month(CURRENT_DATE())
+                MONTH(DATE_SUB(DATE_ADD(STR_TO_DATE(`tgl_kalibrasi`,'%d/%m/%Y'),INTERVAL 1 YEAR), INTERVAL 1 MONTH)) = MONTH(CURRENT_DATE())"); //month(CURRENT_DATE())
                 // $rw = $query->result()->num_row();
                 ?>
                 <li class="nav-item dropdown no-arrow">
