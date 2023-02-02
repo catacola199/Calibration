@@ -18,7 +18,7 @@
                     </li>
                    
                     <li class="sidebar-item">
-                        <a href="<?= base_url('user_kr') ?>" class="sidebar-link">
+                        <a href="<?= base_url('suster') ?>" class="sidebar-link">
                             <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
                         </a>
                     </li>
@@ -106,7 +106,7 @@
                         </a>
                         <ul aria-expanded="false" class="collapse first-level base-level-line">
                             <li class="sidebar-item">
-                                <a href="<?= base_url('user_kr') ?>" class="sidebar-link">
+                                <a href="<?= base_url('kepalaruangan') ?>" class="sidebar-link">
                                     <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
                                 </a>
                             </li>

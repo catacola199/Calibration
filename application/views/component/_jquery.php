@@ -297,6 +297,31 @@
         });
     }
 
+    function prosesConfirm(url) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Peringatan',
+            text: "Apakah data sudah benar?",
+            showCancelButton: true,
+            confirmButtonColor: '#5f76e8',
+            cancelButtonColor: '#fd5f7d',
+            confirmButtonText: 'Ya, Sudah!'
+        }).then(result => {
+            if (result.isConfirmed) {
+                swal.fire({
+                    imageUrl: "<?= base_url('assets/loader_kecil.gif'); ?>",
+                    title: "Mengubah Data",
+                    text: "Mohon Tunggu",
+                    showConfirmButton: false,
+                    allowOutsideClick: false,
+                    timer: 1000
+                }).then((result) => {
+                    window.location.href = url;
+                });
+            }
+        });
+    }
+
     function editConfirm(url) {
         $('#btn-edit').attr('href', url);
         $('#editModal').modal();
