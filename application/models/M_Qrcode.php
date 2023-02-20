@@ -43,7 +43,28 @@ class M_Qrcode extends CI_Model
         $file = $this->getID($id);
         if ($file->file_qr != "default.pdf") {
             $filename = explode(".", $file->file_qr)[0];
-            return array_map('unlink', glob(FCPATH."upload/qrcode/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "upload/qrcode/$filename.*"));
         }
+    }
+    public function get_alat()
+    {
+        $query = $this->db->get('alat_kalibrasi');
+        return $query->result_array();
+    }
+
+    public function get_lokasi()
+    {
+        $this->db->distinct();
+        $this->db->select('lokasi_alat');
+        $query = $this->db->get('alat_kalibrasi');
+        return $query->result_array();
+    }
+
+    function nama_alat($lokasi)
+    {
+        $this->db->select('id_alat,nama_alat,lokasi_alat,noseri_alat');
+        $this->db->group_by('noseri_alat');
+        $query = $this->db->get_where('alat_kalibrasi', array('lokasi_alat' => $lokasi));
+        return $query;
     }
 }

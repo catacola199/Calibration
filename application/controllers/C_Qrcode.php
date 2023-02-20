@@ -18,7 +18,8 @@ class C_Qrcode extends CI_Controller
 	{
 		$data["role"] = $this->All_model->getAllRole();
 		$data["qr"] = $this->M_Qrcode->getAlldata();
-		$data["alat"] = $this->M_Kalibrasi->get_alat();
+		$data["alat"] = $this->M_Qrcode->get_alat();
+		$data["lokasi"] = $this->M_Qrcode->get_lokasi();
 		$this->load->view("dashboard/qrcode", $data);
 	}
 
@@ -96,5 +97,12 @@ class C_Qrcode extends CI_Controller
 	{
 		$data = $this->db->get_where('qr_code', ['id_qr' => $id])->row();
 		force_download($data->file_qr, NULL);
+	}
+
+	function nama_alat()
+	{
+		$lokasi = $this->input->post('id', TRUE);
+		$data = $this->M_Kalibrasi->nama_alat($lokasi)->result();
+		echo json_encode($data);
 	}
 }

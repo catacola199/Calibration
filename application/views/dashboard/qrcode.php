@@ -133,12 +133,22 @@
                 <div class="modal-body">
                     <!-- Form -->
                     <form action="<?php echo base_url('C_Qrcode/simpan_Qrcode') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
-                        <div class="">
+                        <div class="form-group">
+                            <label for="nama_alat"><strong>Lokasi Alat</strong></label>
+                            <select class="form-control" name="lokasi_alat" id="lokasi_alat">
+                                <option selected disabled value="">Choose...</option>
+                                <?php foreach ($lokasi as $l) { ?>
+                                    <option value="<?php echo $l['lokasi_alat']; ?>"><?php echo $l['lokasi_alat']; ?> </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="nama_alat"><strong>Nama Alat</strong></label>
                             <select class="form-control" name="id_alat" id="id_alat">
-                                <option selected>Choose...</option>
+                                <option selected disabled value="">Choose...</option>
                                 <?php foreach ($alat as $l) { ?>
-                                    <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat']; ?> </option>
+                                    <!-- <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat'] . " - " . $l['lokasi_alat']; ?> </option> -->
                                 <?php } ?>
                             </select>
                         </div>
@@ -157,5 +167,33 @@
     <script>
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();
+        });
+        $(document).ready(function() {
+
+            $('#lokasi_alat').change(function() {
+                var id = $(this).val();
+                console.log(id);
+                $.ajax({
+                    url: "<?php echo site_url('C_Qrcode/nama_alat'); ?>",
+                    method: "POST",
+                    data: {
+                        id: id
+                    },
+                    async: true,
+                    dataType: 'json',
+                    success: function(data) {
+
+                        var html = '';
+                        var i;
+                        for (i = 0; i < data.length; i++) {
+                            html += '<option value=' + data[i].id_alat + '>' + data[i].nama_alat + ' - ' + data[i].noseri_alat + ' - ' + data[i].lokasi_alat + '</option>';
+                        }
+                        $('#id_alat').html(html);
+
+                    }
+                });
+                return false;
+            });
+
         });
     </script>

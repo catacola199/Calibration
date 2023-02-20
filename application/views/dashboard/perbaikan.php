@@ -88,31 +88,31 @@
                                                     <td class="text-center">
                                                         <?php if ($data->status == 'BARU') : ?>
                                                             <span class="badge bg-info text-white"><?php echo $data->status ?></sp>
-                                                        <?php elseif ($data->status == 'PROSES') : ?>
-                                                            <p class=" badge bg-warning text-white"><?php echo $data->status ?></p>
-                                                        <?php else : ?>
-                                                            <p class=" badge bg-success text-white"><?php echo $data->status ?></p>
-                                                        <?php endif; ?>
+                                                            <?php elseif ($data->status == 'PROSES') : ?>
+                                                                <p class=" badge bg-warning text-white"><?php echo $data->status ?></p>
+                                                            <?php else : ?>
+                                                                <p class=" badge bg-success text-white"><?php echo $data->status ?></p>
+                                                            <?php endif; ?>
                                                     </td>
-                                                    
+
                                                     <td>
-                                                        <?php if($data->status != 'BARU'):?>
-                                                            <?php if ($data->status == "PROSES"):?>
+                                                        <?php if ($data->status != 'BARU') : ?>
+                                                            <?php if ($data->status == "PROSES") : ?>
                                                                 <a onclick="prosesConfirm('<?php echo site_url('Perbaikan/selesai/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-primary">
                                                                     <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Selesai diproses"></i>
                                                                 </a>
-                                                            <?php else:?>
+                                                            <?php else : ?>
                                                                 <a href="" class="btn btn-sm btn-outline-secondary disabled">
                                                                     <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Verifikasi"></i>
                                                                 </a>
-                                                            <?php endif;?>
+                                                            <?php endif; ?>
                                                             <a href="#!" class="btn btn-sm btn-outline-secondary disabled">
                                                                 <i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
                                                             </a>
                                                             <a href="#!" class="btn btn-sm btn-outline-secondary disabled">
                                                                 <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
                                                             </a>
-                                                        <?php else:?>
+                                                        <?php else : ?>
                                                             <a onclick="prosesConfirm('<?php echo site_url('Perbaikan/proses/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-primary">
                                                                 <i class="fas fa-check" data-toggle="tooltip" data-placement="bottom" title="Verifikasi"></i>
                                                             </a>
@@ -122,7 +122,7 @@
                                                             <a onclick="deleteConfirm('<?php echo site_url('Perbaikan/delete_perbaikan/' . $data->id_permohonan) ?>')" href="#!" class="btn btn-sm btn-outline-danger">
                                                                 <i class="icon-trash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
                                                             </a>
-                                                        <?php endif;?>
+                                                        <?php endif; ?>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -173,11 +173,10 @@
                     <form action="<?php echo base_url('Perbaikan/save_perbaikan') ?>" method="post" enctype="multipart/form-data" role="form" class="pl-3 pr-3">
                         <div class="form-group">
                             <div class="form-floating">
-                                <input type="hidden" name="no_permohonan" id="no_permohonan" 
-                                value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);echo $no_permohonan; ?>">
-                                <input type="text" class="form-control" id="kode" placeholder="No Permohonan" 
-                                value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);
-                                    echo $no_permohonan; ?>" disabled>
+                                <input type="hidden" name="no_permohonan" id="no_permohonan" value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);
+                                                                                                    echo $no_permohonan; ?>">
+                                <input type="text" class="form-control" id="kode" placeholder="No Permohonan" value="<?php $no_permohonan = "A-" . date("dmY") . substr(md5(time()), 0, 5);
+                                                                                                                        echo $no_permohonan; ?>" disabled>
                                 <label for="no_permohonan">No Permohonan</label>
                             </div>
                         </div>
@@ -189,18 +188,18 @@
                                     <option value="<?php echo $l['lokasi_alat']; ?>"><?php echo $l['lokasi_alat']; ?> </option>
                                 <?php } ?>
                             </select>
-                        </div>    
-                    
+                        </div>
+
                         <div class="form-group">
                             <label for="nama_alat"><strong>Nama Alat</strong></label>
                             <select class="form-control" name="id_alat" id="id_alat">
                                 <option selected disabled value="">Choose...</option>
                                 <?php foreach ($alat as $l) { ?>
-                                    <!-- <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat']. " - " . $l['lokasi_alat']; ?> </option> -->
+                                    <!-- <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat'] . " - " . $l['lokasi_alat']; ?> </option> -->
                                 <?php } ?>
                             </select>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="noseri_alat"><strong>Keterangan</strong></label>
                             <input type="text" class="form-control form-control-user" name="keterangan" id="keterangan" placeholder="keterangan" required>
@@ -239,14 +238,14 @@
                                         <option value="<?php echo $l['lokasi_alat']; ?>"><?php echo $l['lokasi_alat']; ?> </option>
                                     <?php } ?>
                                 </select>
-                            </div>    
-                        
+                            </div>
+
                             <div class="form-group">
                                 <label for="nama_alat"><strong>Nama Alat</strong></label>
                                 <select class="form-control" name="id_alat" id="id_alat">
                                     <option selected disabled value="">Choose...</option>
                                     <?php foreach ($alat as $l) { ?>
-                                        <!-- <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat']. " - " . $l['lokasi_alat']; ?> </option> -->
+                                        <!-- <option value="<?php echo $l['id_alat']; ?>"><?php echo $l['nama_alat'] . " - " . $l['noseri_alat'] . " - " . $l['lokasi_alat']; ?> </option> -->
                                     <?php } ?>
                                 </select>
                             </div>
@@ -312,30 +311,32 @@
         $(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
-        $(document).ready(function(){
+        $(document).ready(function() {
 
-            $('#lokasi_alat').change(function(){ 
-                var id=$(this).val();
+            $('#lokasi_alat').change(function() {
+                var id = $(this).val();
                 console.log(id);
                 $.ajax({
-                    url : "<?php echo site_url('perbaikan/nama_alat');?>",
-                    method : "POST",
-                    data : {id: id},
-                    async : true,
-                    dataType : 'json',
-                    success: function(data){
-                        
+                    url: "<?php echo site_url('perbaikan/nama_alat'); ?>",
+                    method: "POST",
+                    data: {
+                        id: id
+                    },
+                    async: true,
+                    dataType: 'json',
+                    success: function(data) {
+
                         var html = '';
                         var i;
-                        for(i=0; i<data.length; i++){
-                            html += '<option value='+data[i].id_alat+'>'+data[i].nama_alat+' - '+data[i].noseri_alat+' - '+data[i].lokasi_alat+'</option>';
+                        for (i = 0; i < data.length; i++) {
+                            html += '<option value=' + data[i].id_alat + '>' + data[i].nama_alat + ' - ' + data[i].noseri_alat + ' - ' + data[i].lokasi_alat + '</option>';
                         }
                         $('#id_alat').html(html);
 
                     }
                 });
                 return false;
-            }); 
+            });
 
         });
     </script>
