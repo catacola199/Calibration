@@ -50,7 +50,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Daftar Kesesuaian</h4>
+                                <h4 class="card-title">Daftar Uji Kesesuaian</h4>
                                 <hr>
                                 <h6 class="card-subtitle">
                                     <div class="btn-list">
@@ -196,7 +196,7 @@
     </div><!-- / Tambah Kalibrasi -->
 
     <!-- Modal Edit -->
-    <?php foreach ($kalibrasi as $data) : ?>
+    <?php foreach ($ukes as $data) : ?>
         <div class="modal fade" id="edit-<?= $data->id_ukes ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -206,9 +206,9 @@
                     </div>
 
                     <div class="modal-body">
-                        <form action="<?php echo base_url('Ujikesesuaian/update_kalibrasi') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
+                        <form action="<?php echo base_url('Ujikesesuaian/update_ukes') ?>" method="post" enctype="multipart/form-data" class="pl-3 pr-3">
 
-                            <input type="text" hidden name="id_kalibrasi" id="id_kalibrasi" value="<?= $data->id_kalibrasi ?>">
+                            <input type="text" hidden name="id_ukes" id="id_ukes" value="<?= $data->id_ukes ?>">
                             <div class="form-group">
                                 <label for="nama_alat"><strong>Lokasi Alat</strong></label>
                                 <select class="form-control" name="lokasi_alat" id="lokasi_alat">
