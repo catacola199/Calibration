@@ -30,14 +30,16 @@
                 <div class="container ">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <center><h3 class="card-title">Data Alat</h3></center>
+                            <center>
+                                <h3 class="card-title">Data Alat</h3>
+                            </center>
                             <hr>
                             <div class="row">
                                 <div class="col-5 col-md-3">
                                     <p class="card-text text-truncate">Nama Alat</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->nama_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->nama_alat ?> </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -45,7 +47,7 @@
                                     <p class="card-text text-truncate">Merk Alat</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->merk_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->merk_alat ?> </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -53,7 +55,7 @@
                                     <p class="card-text text-truncate">Tipe Alat</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->tipe_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->tipe_alat ?> </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -61,7 +63,7 @@
                                     <p class="card-text text-truncate">Nomor Seri Alat</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->noseri_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->noseri_alat ?> </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -69,7 +71,7 @@
                                     <p class="card-text text-truncate">Lokasi Alat</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->lokasi_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->lokasi_alat ?> </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -77,7 +79,7 @@
                                     <p class="card-text text-truncate">Tanggal Alat Tiba</p>
                                 </div>
                                 <div class="col">
-                                    <p class="card-text"><?php echo ": ".$alat->tglpengadaan_alat ?> </p>
+                                    <p class="card-text"><?php echo ": " . $alat->tglpengadaan_alat ?> </p>
                                 </div>
                             </div>
                             <hr>
@@ -106,6 +108,8 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <hr>
+                            <h4 class="card-title"><i class='bx bx-check'></i> Riwayat Uji Kesesuaian </h4>
                             <hr>
                             <div class="table-responsive">
                                 <table id="kalibrasi" class="table table-bordered display no-wrap" style="width:100%">
@@ -155,7 +159,7 @@
                                 </table>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Row -->
