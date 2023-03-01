@@ -16,7 +16,7 @@
                     <li class="nav-small-cap">
                         <span class="hide-menu">Applications</span>
                     </li>
-                   
+
                     <li class="sidebar-item">
                         <a href="<?= base_url('suster') ?>" class="sidebar-link">
                             <i class='bx bx-receipt'></i> <span class="hide-menu">Perbaikan </span>
@@ -33,7 +33,7 @@
                         </a>
                     </li>
                 <?php } ?>
-             
+
 
 
                 <!-- <li class="sidebar-item">
@@ -54,7 +54,7 @@
                             <span class="hide-menu">Master Data</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level base-level-line">
-                        
+
                             <li class="sidebar-item">
                                 <a href="<?= base_url('users') ?>" class="sidebar-link">
                                     <i class='bx bx-user'></i> <span class="hide-menu">Pengguna </span>
@@ -68,6 +68,11 @@
                             <li class="sidebar-item">
                                 <a href="<?= base_url('kalibrasis') ?>" class="sidebar-link">
                                     <i class='bx bx-file'></i> <span class="hide-menu">Kalibrasi </span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="<?= base_url('ukes') ?>" class="sidebar-link">
+                                    <i class='bx bx-pulse'></i> <span class="hide-menu">Uji Kesesuaian </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">

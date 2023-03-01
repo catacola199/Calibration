@@ -107,6 +107,30 @@
                                 </table>
                             </div>
                             <hr>
+                            <div class="table-responsive">
+                                <table id="kalibrasi" class="table table-bordered display no-wrap" style="width:100%">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tanggal Uji Kesesuaian</th>
+                                            <th>Lampiran</th>
+                                            <th>Quality Pass</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1;
+                                        foreach ($ukes as $data) : ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?php echo $data->tgl_ukes ?></td>
+                                                <td><a href="<?php echo base_url('upload/kalibrasi/file_lampiran/' . $data->lampiran) ?>"> <?php echo $data->lampiran ?> </a></td>
+                                                <td><?php echo $data->quality_pass ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <hr>
                             <h4 class="card-title"><i class='bx bx-check'></i> Riwayat Pemeliharaan </h4>
                             <hr>
                             <div class="table-responsive">

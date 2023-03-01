@@ -63,6 +63,7 @@ $route['permintaans'] = 'permintaan';
 $route['profiles'] = 'Profile';
 $route['compro'] = 'brosur/brosur';
 $route['alatKalibrasis'] = 'AlatKalibrasi';
+$route['ukes'] = 'Ujikesesuaian';
 $route['kalibrasis'] = 'Kalibrasi';
 $route['pemeliharaankalibrasis'] = 'PemeliharaanKalibrasi';
 $route['qrcode'] = 'C_Qrcode';
